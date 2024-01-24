@@ -1,95 +1,53 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Link from "next/link";
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
+    <div>
+      <h1>Hello, This is Pictomo!</h1>
+      <div>
+        <h3>Profile</h3>
         <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
+          エンジニアを目指して奮闘中。
+          <br />
+          興味は、言語処理系、DB、cryotoなど。
+          <br />
+          趣味は、小説を読む、ピアノを弾く、お茶を点てる、廃墟を巡る、京を巡る、などなど。
         </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div>
+        <h3>History</h3>
+        <p>
+          2001年東京生まれ。
+          <br />
+          幼稚園の終盤から約10年間沖縄で時を過ごす。
+          <br />
+          高校入学と同時に関東へ舞い戻り、現在は大学生。
+        </p>
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div>
+        <h3>Affiliation</h3>
+        <p>
+          筑波大学 情報学群 情報メディア創成学類 3年生
+          <br />
+          筑波大学 融合知能デザイン研究室
+          <br />
+          株式会社ゼロフィールド(インターン)
+          <br />
+          ライフイズテック株式会社(インターン)
+        </p>
       </div>
-    </main>
+      <div>
+        <h3>Links</h3>
+        <Link href="https://github.com/pictomo">GitHub</Link>
+        <br />
+        <Link href="https://twitter.com/MPictomo">X</Link>
+        <br />
+        <Link href="https://www.instagram.com/pictomo_m">Instagram</Link>
+      </div>
+    </div>
   );
-}
+};
+
+export default Home;
