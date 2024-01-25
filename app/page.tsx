@@ -1,6 +1,6 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 import Link from "next/link";
+import { Crowd4UBanner } from "./components/Crowd4UBanner";
 
 const Home = () => {
   return (
@@ -46,6 +46,8 @@ const Home = () => {
         <br />
         <Link href="https://www.instagram.com/pictomo_m">Instagram</Link>
       </div>
+      <br />
+      <Crowd4UBanner />
     </div>
   );
 };
