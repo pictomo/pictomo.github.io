@@ -45,6 +45,8 @@ const Home = () => {
         <Link href="https://twitter.com/MPictomo">X</Link>
         <br />
         <Link href="https://www.instagram.com/pictomo_m">Instagram</Link>
+        <br />
+        <Link href="https://www.facebook.com/MPictomo">Facebook</Link>
       </div>
       <br />
       <Crowd4UBanner />
