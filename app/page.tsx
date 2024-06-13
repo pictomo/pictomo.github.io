@@ -29,13 +29,21 @@ const Home = () => {
       <div>
         <h3>Affiliation</h3>
         <p>
-          筑波大学 情報学群 情報メディア創成学類 4年生
+          <Link href="https://www.tsukuba.ac.jp">筑波大学 </Link>
+          <Link href="https://inf.tsukuba.ac.jp">情報学群 </Link>
+          <Link href="https://www.mast.tsukuba.ac.jp">
+            情報メディア創成学類&nbsp;
+          </Link>
+          4年生
           <br />
-          筑波大学 融合知能デザイン研究室
+          <Link href="https://www.tsukuba.ac.jp">筑波大学 </Link>
+          <Link href="https://fusioncomplab.org">融合知能デザイン研究室</Link>
           <br />
-          株式会社ゼロフィールド(インターン)
+          <Link href="https://zerofield.biz">株式会社ゼロフィールド </Link>
+          インターン
           <br />
-          ライフイズテック株式会社(インターン)
+          <Link href="https://lifeistech.co.jp">ライフイズテック株式会社 </Link>
+          メンター
         </p>
       </div>
       <div>
