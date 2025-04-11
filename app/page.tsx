@@ -31,7 +31,7 @@ const Home = () => {
           <Link href="https://www.tsukuba.ac.jp">筑波大学 </Link>
           <Link href="https://www.chs.tsukuba.ac.jp">人間総合科学学術院 </Link>
           <Link href="https://informatics.tsukuba.ac.jp">
-            人間総合科学研究群&nbsp 情報学学位プログラム&nbsp
+            人間総合科学研究群 情報学学位プログラム&nbsp;
           </Link>
           修士1年生
           <br />
