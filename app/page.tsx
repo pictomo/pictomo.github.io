@@ -22,18 +22,18 @@ const Home = () => {
           <br />
           幼稚園の終盤から約10年間沖縄で時を過ごす。
           <br />
-          高校入学と同時に関東へ舞い戻り、現在は大学生。
+          高校入学と同時に関東へ舞い戻り、現在は大学院生。
         </p>
       </div>
       <div>
         <h3>Affiliation</h3>
         <p>
           <Link href="https://www.tsukuba.ac.jp">筑波大学 </Link>
-          <Link href="https://inf.tsukuba.ac.jp">情報学群 </Link>
-          <Link href="https://www.mast.tsukuba.ac.jp">
-            情報メディア創成学類&nbsp;
+          <Link href="https://www.chs.tsukuba.ac.jp">人間総合科学学術院 </Link>
+          <Link href="https://informatics.tsukuba.ac.jp">
+            人間総合科学研究群&nbsp 情報学学位プログラム&nbsp
           </Link>
-          4年生
+          修士1年生
           <br />
           <Link href="https://www.tsukuba.ac.jp">筑波大学 </Link>
           <Link href="https://fusioncomplab.org">融合知能デザイン研究室</Link>
