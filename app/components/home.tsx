@@ -8,9 +8,7 @@ import { I18nLocaleContext } from "@/app/page";
 import { Crowd4UBanner } from "@/app/components/Crowd4UBanner";
 
 const Home = () => {
-  const localeInfo = useContext(I18nLocaleContext);
-  const locale = localeInfo.locale;
-  const setLocale = localeInfo.setLocale;
+  const { locale, setLocale } = useContext(I18nLocaleContext);
 
   return (
     <div>
