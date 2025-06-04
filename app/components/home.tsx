@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useContext } from "react";
 
 import { I18nLocale, t } from "@/app/i18n/config";
-import { I18nLocaleContext } from "@/app/page";
+import { I18nLocaleContext } from "@/app/i18n_locale_context";
 import { Crowd4UBanner } from "@/app/components/Crowd4UBanner";
 
 const Home = () => {

@@ -1,14 +1,10 @@
 "use client";
 
-import { createContext, Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 
 import Home from "@/app/components/home";
 import { I18nLocale, defaultLocale } from "@/app/i18n/config";
-
-export const I18nLocaleContext = createContext<{
-  locale: I18nLocale;
-  setLocale: Dispatch<SetStateAction<I18nLocale>>;
-}>({ locale: defaultLocale, setLocale: () => {} });
+import { I18nLocaleContext } from "@/app/i18n_locale_context";
 
 const Page = () => {
   const [i18nLocale, setI18nLocale] = useState<I18nLocale>(defaultLocale);
