@@ -22,48 +22,110 @@ const Home = () => {
       </button>
       <div>
         <h3>Profile</h3>
-        <p>
-          {t(
-            {
-              ja: "エンジニアを目指して奮闘中。",
-              en: "I'm striving to become an engineer.",
-            },
-            locale
-          )}
-          <br />
-          技術的な興味は、言語処理系、DB、cryptoなど。
-          <br />
-          趣味は、小説を読む、ピアノを弾く、お茶を点てる、廃墟を巡る、古都を巡る、などなど。
-        </p>
+        {t(
+          {
+            ja: (
+              <p>
+                エンジニアを目指して奮闘中。
+                <br />
+                技術的な興味は、言語処理系、DB、cryptoなど。
+                <br />
+                趣味は、小説を読む、ピアノを弾く、お茶を点てる、廃墟を巡る、古都を巡る、などなど。
+              </p>
+            ),
+            en: (
+              <p>
+                I'm striving to become an engineer.
+                <br />
+                My technical interests are language processing, DB, crypto, etc.
+                <br />
+                My hobbies are reading novels, playing the piano, brewing tea,
+                exploring ruins, exploring ancient cities, etc...
+              </p>
+            ),
+          },
+          locale
+        )}
       </div>
       <div>
         <h3>History</h3>
-        <p>
-          2001年東京生まれ。
-          <br />
-          幼稚園の終盤から約10年間沖縄で時を過ごす。
-          <br />
-          高校入学と同時に関東へ舞い戻り、現在は大学院生。
-        </p>
+        {t(
+          {
+            ja: (
+              <p>
+                2001年東京生まれ。
+                <br />
+                幼稚園の終盤から約10年間沖縄で時を過ごす。
+                <br />
+                高校入学と同時に関東へ舞い戻り、現在は大学院生。
+              </p>
+            ),
+            en: (
+              <p>
+                Born in Tokyo in 2001.
+                <br />
+                Spent about 10 years in Okinawa from the end of kindergarten.
+                <br />
+                Returned to the Kanto region upon entering high school, and is
+                currently a graduate student.
+              </p>
+            ),
+          },
+          locale
+        )}
       </div>
       <div>
         <h3>Affiliation</h3>
         <p>
-          <Link href="https://www.tsukuba.ac.jp">筑波大学 </Link>
-          <Link href="https://www.chs.tsukuba.ac.jp">人間総合科学学術院 </Link>
-          <Link href="https://informatics.tsukuba.ac.jp">
-            人間総合科学研究群 情報学学位プログラム&nbsp;
+          <Link href="https://www.tsukuba.ac.jp">
+            {t({ ja: "筑波大学", en: "University of Tsukuba," }, locale)}
           </Link>
-          修士1年生
+          <Link href="https://www.chs.tsukuba.ac.jp">
+            {t(
+              {
+                ja: " 人間総合科学学術院",
+                en: " Graduate School of Comprehensive Human Sciences,",
+              },
+              locale
+            )}
+          </Link>
+          <Link href="https://informatics.tsukuba.ac.jp">
+            {t(
+              {
+                ja: " 人間総合科学研究群 情報学学位プログラム",
+                en: " Master's and Doctoral Programs in Informatics,",
+              },
+              locale
+            )}
+            &nbsp;
+          </Link>
+          {t({ ja: " 修士1年生", en: " Master's 1st year" }, locale)}
           <br />
-          <Link href="https://www.tsukuba.ac.jp">筑波大学 </Link>
-          <Link href="https://fusioncomplab.org">融合知能デザイン研究室</Link>
+          <Link href="https://www.tsukuba.ac.jp">
+            {t({ ja: "筑波大学", en: "University of Tsukuba," }, locale)}
+          </Link>
+          <Link href="https://fusioncomplab.org">
+            {t(
+              {
+                ja: " 融合知能デザイン研究室",
+                en: " FusionCompLab",
+              },
+              locale
+            )}
+          </Link>
           <br />
-          <Link href="https://zerofield.biz">株式会社ゼロフィールド </Link>
-          インターン
+          <Link href="https://zerofield.biz">
+            {t({ ja: "株式会社ゼロフィールド", en: "ZEROFIELD, Inc." }, locale)}
+          </Link>
+          {t({ ja: " インターン", en: " Internship" }, locale)}
           <br />
-          <Link href="https://lifeistech.co.jp">ライフイズテック株式会社 </Link>
-          メンター
+          <Link href="https://lifeistech.co.jp">
+            {t(
+              { ja: "ライフイズテック株式会社 ", en: "Life is Tech, Inc. " },
+              locale
+            )}
+          </Link>
+          {t({ ja: " メンター", en: " Mentor" }, locale)}
         </p>
       </div>
       <div>
@@ -79,7 +141,16 @@ const Home = () => {
       <br />
       <Crowd4UBanner />
       <br />
-      <p>* 当サイトは未完成です。暇を見つけて増改築してゆきます。</p>
+      <p>
+        *{" "}
+        {t(
+          {
+            ja: "当サイトは未完成です。暇を見つけて増改築してゆきます。",
+            en: "This site is incomplete. I will add and modify it as I find time.",
+          },
+          locale
+        )}
+      </p>
     </div>
   );
 };
