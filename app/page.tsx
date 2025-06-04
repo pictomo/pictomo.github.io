@@ -1,21 +1,16 @@
 "use client";
 
-import { useState } from "react";
-
-import Home from "@/app/components/home";
-import { I18nLocale, defaultLocale } from "@/app/i18n/config";
-import { I18nLocaleContext } from "@/app/i18n_locale_context";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
-  const [i18nLocale, setI18nLocale] = useState<I18nLocale>(defaultLocale);
+  const router = useRouter();
 
-  return (
-    <I18nLocaleContext.Provider
-      value={{ locale: i18nLocale, setLocale: setI18nLocale }}
-    >
-      <Home />
-    </I18nLocaleContext.Provider>
-  );
+  useEffect(() => {
+    router.replace("/ja");
+  }, []);
+
+  return null;
 };
 
 export default Page;
