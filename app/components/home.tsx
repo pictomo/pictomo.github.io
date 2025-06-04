@@ -1,25 +1,15 @@
-"use client";
-
 import Link from "next/link";
-import { useContext } from "react";
 
 import { I18nLocale, t } from "@/app/i18n/config";
-import { I18nLocaleContext } from "@/app/i18n_locale_context";
 import { Crowd4UBanner } from "@/app/components/Crowd4UBanner";
 
-const Home = () => {
-  const { locale, setLocale } = useContext(I18nLocaleContext);
-
+const Home = ({ locale }: { locale: I18nLocale }) => {
   return (
     <div>
       <h1>Hello, This is Pictomo!</h1>
-      <button
-        onClick={() =>
-          setLocale(t({ ja: "en", en: "ja" }, locale) as I18nLocale)
-        }
-      >
+      <Link href={locale === "ja" ? "/en" : "/ja"}>
         {t({ ja: "English", en: "日本語" }, locale)}
-      </button>
+      </Link>
       <div>
         <h3>Profile</h3>
         {t(

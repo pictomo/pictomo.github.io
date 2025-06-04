@@ -7,9 +7,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "pictomo",
   description: "As you can see!",
-	verification: {
+  verification: {
     google: "UcpS98FWCatzamy3CSYV17WDqJdIusn5PK0j9mp0qbc",
-	},
+  },
 };
 
 export default function RootLayout({
