@@ -20,7 +20,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
                 <br />
                 技術的な興味は、言語処理系、DB、cryptoなど。
                 <br />
-                趣味は、小説を読む、ピアノを弾く、お茶を点てる、廃墟を巡る、古都を巡る、などなど。
+                趣味は、小説を読む、ピアノを弾く、お茶を点てる、古都を巡る、などなど。
               </p>
             ),
             en: (
@@ -30,7 +30,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
                 My technical interests are language processing, DB, crypto, etc.
                 <br />
                 My hobbies are reading novels, playing the piano, brewing tea,
-                exploring ruins, exploring ancient cities, etc...
+                exploring ancient cities, etc...
               </p>
             ),
           },
@@ -106,6 +106,14 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           <br />
           <Link href="https://zerofield.biz">
             {t({ ja: "株式会社ゼロフィールド", en: "ZEROFIELD, Inc." }, locale)}
+          </Link>
+          {t(
+            { ja: " インターン (休暇中)", en: " Internship (on leave)" },
+            locale
+          )}
+          <br />
+          <Link href="https://www.skygroup.jp">
+            {t({ ja: "Ｓｋｙ株式会社", en: "Sky Co., LTD." }, locale)}
           </Link>
           {t({ ja: " インターン", en: " Internship" }, locale)}
           <br />
