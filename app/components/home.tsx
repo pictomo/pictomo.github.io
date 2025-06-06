@@ -67,10 +67,10 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
       <div>
         <h3>Affiliation</h3>
         <p>
-          <Link href="https://www.tsukuba.ac.jp">
+          <Link href="https://www.tsukuba.ac.jp" target="_blank">
             {t({ ja: "筑波大学", en: "University of Tsukuba," }, locale)}
           </Link>
-          <Link href="https://www.chs.tsukuba.ac.jp">
+          <Link href="https://www.chs.tsukuba.ac.jp" target="_blank">
             {t(
               {
                 ja: " 人間総合科学学術院",
@@ -79,7 +79,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               locale
             )}
           </Link>
-          <Link href="https://informatics.tsukuba.ac.jp">
+          <Link href="https://informatics.tsukuba.ac.jp" target="_blank">
             {t(
               {
                 ja: " 人間総合科学研究群 情報学学位プログラム",
@@ -91,10 +91,10 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           </Link>
           {t({ ja: " 修士1年生", en: " Master's 1st year" }, locale)}
           <br />
-          <Link href="https://www.tsukuba.ac.jp">
+          <Link href="https://www.tsukuba.ac.jp" target="_blank">
             {t({ ja: "筑波大学", en: "University of Tsukuba," }, locale)}
           </Link>
-          <Link href="https://fusioncomplab.org">
+          <Link href="https://fusioncomplab.org" target="_blank">
             {t(
               {
                 ja: " 融合知能デザイン研究室",
@@ -104,7 +104,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
             )}
           </Link>
           <br />
-          <Link href="https://zerofield.biz">
+          <Link href="https://zerofield.biz" target="_blank">
             {t({ ja: "株式会社ゼロフィールド", en: "ZEROFIELD, Inc." }, locale)}
           </Link>
           {t(
@@ -112,12 +112,12 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
             locale
           )}
           <br />
-          <Link href="https://www.skygroup.jp">
+          <Link href="https://www.skygroup.jp" target="_blank">
             {t({ ja: "Ｓｋｙ株式会社", en: "Sky Co., LTD." }, locale)}
           </Link>
           {t({ ja: " インターン", en: " Internship" }, locale)}
           <br />
-          <Link href="https://lifeistech.co.jp">
+          <Link href="https://lifeistech.co.jp" target="_blank">
             {t(
               { ja: "ライフイズテック株式会社 ", en: "Life is Tech, Inc. " },
               locale
@@ -128,13 +128,21 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
       </div>
       <div>
         <h3>Links</h3>
-        <Link href="https://github.com/pictomo">GitHub</Link>
+        <Link href="https://github.com/pictomo" target="_blank">
+          GitHub
+        </Link>
         <br />
-        <Link href="https://twitter.com/MPictomo">X</Link>
+        <Link href="https://twitter.com/MPictomo" target="_blank">
+          X
+        </Link>
         <br />
-        <Link href="https://www.instagram.com/pictomo_m">Instagram</Link>
+        <Link href="https://www.instagram.com/pictomo_m" target="_blank">
+          Instagram
+        </Link>
         <br />
-        <Link href="https://www.facebook.com/MPictomo">Facebook</Link>
+        <Link href="https://www.facebook.com/MPictomo" target="_blank">
+          Facebook
+        </Link>
       </div>
       <br />
       <Crowd4UBanner />
