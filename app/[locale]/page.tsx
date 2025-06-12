@@ -1,10 +1,10 @@
 import Home from "@/app/components/home";
-import { I18nLocale } from "../i18n/config";
+import { i18nLocales, I18nLocale } from "../i18n/config";
 
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  return [{ locale: "ja" }, { locale: "en" }];
+  return i18nLocales.map((locale) => ({ locale }));
 }
 
 const Page = async ({
