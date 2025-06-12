@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Script from "next/script";
+// import Script from "next/script";
 
 export const Crowd4UBanner = () => {
   return (
@@ -34,7 +34,7 @@ export const Crowd4UBanner = () => {
           }
         `}
       </Script> */}
-      <Link className="microtask repeat" href="//crowd4u.org">
+      <Link className="microtask repeat" href="//crowd4u.org" target="_blank">
         <img src="//crowd4u.org/img/crowd4u_banner364x93.png" />
       </Link>
     </div>
