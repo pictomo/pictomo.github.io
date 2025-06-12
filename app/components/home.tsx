@@ -145,7 +145,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
         </Link>
       </div>
       <br />
-      <Crowd4UBanner />
+      <Crowd4UBanner locale={locale} />
       <br />
       <p>
         *{" "}

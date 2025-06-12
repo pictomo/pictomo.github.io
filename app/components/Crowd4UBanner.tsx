@@ -1,9 +1,11 @@
 "use client";
 
+import { I18nLocale } from "../i18n/config";
+import { t } from "../i18n/config";
 import Link from "next/link";
 // import Script from "next/script";
 
-export const Crowd4UBanner = () => {
+export const Crowd4UBanner = ({ locale }: { locale: I18nLocale }) => {
   return (
     <div>
       {/* <Script>
@@ -35,7 +37,13 @@ export const Crowd4UBanner = () => {
         `}
       </Script> */}
       <Link className="microtask repeat" href="//crowd4u.org" target="_blank">
-        <img src="//crowd4u.org/img/crowd4u_banner364x93.png" />
+        {t(
+          {
+            ja: <img src="//crowd4u.org/img/crowd4u_banner364x93.png" />,
+            en: <img src="//crowd4u.org/img/crowd4u_banner364x93_en.png" />,
+          },
+          locale
+        )}
       </Link>
     </div>
   );
