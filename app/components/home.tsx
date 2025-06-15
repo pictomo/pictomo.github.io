@@ -132,6 +132,10 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           GitHub
         </Link>
         <br />
+        <Link href="https://qiita.com/pictomo_m" target="_blank">
+          Qiita
+        </Link>
+        <br />
         <Link href="https://twitter.com/MPictomo" target="_blank">
           X
         </Link>
