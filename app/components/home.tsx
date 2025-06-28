@@ -16,7 +16,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           {
             ja: (
               <p>
-                エンジニアを目指して奮闘中。
+                ハイパーIT人材を目指して奮闘中。
                 <br />
                 技術的な興味は、言語処理系、DB、cryptoなど。
                 <br />
@@ -25,7 +25,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
             ),
             en: (
               <p>
-                I'm striving to become an engineer.
+                I'm striving to become a hyper-IT talent.
                 <br />
                 My technical interests are language processing, DB, crypto, etc.
                 <br />
