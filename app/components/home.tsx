@@ -2,6 +2,9 @@ import Link from "next/link";
 
 import { I18nLocale, t } from "@/app/i18n/config";
 import { Crowd4UBanner } from "@/app/components/Crowd4UBanner";
+import { FaGithub, FaInstagram, FaFacebook } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+// import { SiQiita } from "react-icons/si";
 
 const Home = ({ locale }: { locale: I18nLocale }) => {
   return (
@@ -129,23 +132,27 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
       <div>
         <h3>Links</h3>
         <Link href="https://github.com/pictomo" target="_blank">
+          <FaGithub />
           GitHub
         </Link>
         <br />
-        <Link href="https://qiita.com/pictomo_m" target="_blank">
-          Qiita
-        </Link>
-        <br />
-        <Link href="https://twitter.com/MPictomo" target="_blank">
-          X
-        </Link>
-        <br />
         <Link href="https://www.instagram.com/pictomo_m" target="_blank">
+          <FaInstagram />
           Instagram
         </Link>
         <br />
         <Link href="https://www.facebook.com/MPictomo" target="_blank">
+          <FaFacebook />
           Facebook
+        </Link>
+        <br />
+        <Link href="https://twitter.com/MPictomo" target="_blank">
+          <FaXTwitter />
+        </Link>
+        <br />
+        <Link href="https://qiita.com/pictomo_m" target="_blank">
+          {/* <SiQiita /> */}
+          Qiita
         </Link>
       </div>
       <br />
