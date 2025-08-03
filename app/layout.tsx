@@ -6,7 +6,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "pictomo",
-  description: "As you can see!",
+  description: `
+  pictomo / ピクトモ / ぴくとも
+  pictomoの自己紹介、ポートフォリオサイトです。ITエンジニアの卵をやっております。
+  This is pictomo's self-introduction and portfolio site. I'm an aspiring IT engineer.
+  `,
   verification: {
     google: "UcpS98FWCatzamy3CSYV17WDqJdIusn5PK0j9mp0qbc",
   },
