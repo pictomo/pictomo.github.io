@@ -9,7 +9,7 @@ const Page = () => {
   const router = useRouter();
 
   useEffect(() => {
-    router.replace("/ja");
+    router.replace("/" + defaultLocale);
   }, []);
 
   return (

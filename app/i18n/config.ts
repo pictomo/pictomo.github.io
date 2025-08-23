@@ -4,7 +4,7 @@ export const i18nLocales = ["ja", "en"] as const;
 export type I18nLocale = (typeof i18nLocales)[number];
 type I18nDict = { [key in I18nLocale]?: string | ReactNode };
 
-export const defaultLocale: I18nLocale = "ja";
+export const defaultLocale: I18nLocale = i18nLocales[0];
 
 /**
  * 指定されたロケールに基づいて国際化された値を返します。
