@@ -3,13 +3,18 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Home from "./components/home";
-import { defaultLocale } from "./i18n/config";
+import { defaultLocale, I18nLocale, i18nLocales } from "./i18n/config";
 
 const Page = () => {
   const router = useRouter();
 
   useEffect(() => {
-    router.replace("/" + defaultLocale);
+    const detectedLocale = window.navigator.language;
+    if (i18nLocales.includes(detectedLocale as I18nLocale)) {
+      router.replace("/" + detectedLocale);
+    } else {
+      router.replace("/" + defaultLocale);
+    }
   }, []);
 
   return (

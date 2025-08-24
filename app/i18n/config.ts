@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export const i18nLocales = ["ja", "en"] as const;
+export const i18nLocales = ["en", "ja"] as const;
 export type I18nLocale = (typeof i18nLocales)[number];
 type I18nDict = { [key in I18nLocale]?: string | ReactNode };
 
