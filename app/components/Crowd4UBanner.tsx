@@ -36,7 +36,7 @@ export const Crowd4UBanner = ({ locale }: { locale: I18nLocale }) => {
           }
         `}
       </Script> */}
-      <Link className="microtask repeat" href="//crowd4u.org" target="_blank">
+      <a className="microtask repeat" href="//crowd4u.org" target="_blank">
         {t(
           {
             ja: <img src="//crowd4u.org/img/crowd4u_banner364x93.png" />,
@@ -44,7 +44,7 @@ export const Crowd4UBanner = ({ locale }: { locale: I18nLocale }) => {
           },
           locale
         )}
-      </Link>
+      </a>
     </div>
   );
 };

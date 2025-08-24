@@ -71,14 +71,14 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
       <div>
         <h3>Affiliation</h3>
         <p>
-          <Link
+          <a
             className={LinkStyle.link}
             href="https://www.tsukuba.ac.jp"
             target="_blank"
           >
             {t({ ja: "筑波大学", en: "University of Tsukuba," }, locale)}
-          </Link>
-          <Link
+          </a>
+          <a
             className={LinkStyle.link}
             href="https://www.chs.tsukuba.ac.jp"
             target="_blank"
@@ -90,8 +90,8 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               },
               locale
             )}
-          </Link>
-          <Link
+          </a>
+          <a
             className={LinkStyle.link}
             href="https://informatics.tsukuba.ac.jp"
             target="_blank"
@@ -104,17 +104,17 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               locale
             )}
             &nbsp;
-          </Link>
+          </a>
           {t({ ja: " 修士1年生", en: " Master's 1st year" }, locale)}
           <br />
-          <Link
+          <a
             className={LinkStyle.link}
             href="https://www.tsukuba.ac.jp"
             target="_blank"
           >
             {t({ ja: "筑波大学", en: "University of Tsukuba," }, locale)}
-          </Link>
-          <Link
+          </a>
+          <a
             className={LinkStyle.link}
             href="https://fusioncomplab.org"
             target="_blank"
@@ -126,30 +126,30 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               },
               locale
             )}
-          </Link>
+          </a>
           <br />
-          <Link
+          <a
             className={LinkStyle.link}
             href="https://zerofield.biz"
             target="_blank"
           >
             {t({ ja: "株式会社ゼロフィールド", en: "ZEROFIELD, Inc." }, locale)}
-          </Link>
+          </a>
           {t(
             { ja: " インターン (休暇中)", en: " Internship (on leave)" },
             locale
           )}
           <br />
-          <Link
+          <a
             className={LinkStyle.link}
             href="https://www.skygroup.jp"
             target="_blank"
           >
             {t({ ja: "Ｓｋｙ株式会社", en: "Sky Co., LTD." }, locale)}
-          </Link>
+          </a>
           {t({ ja: " インターン", en: " Internship" }, locale)}
           <br />
-          <Link
+          <a
             className={LinkStyle.link}
             href="https://lifeistech.co.jp"
             target="_blank"
@@ -158,55 +158,55 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               { ja: "ライフイズテック株式会社 ", en: "Life is Tech, Inc. " },
               locale
             )}
-          </Link>
+          </a>
           {t({ ja: " メンター", en: " Mentor" }, locale)}
         </p>
       </div>
       <div>
         <h3>Links</h3>
-        <Link
+        <a
           className={LinkStyle.link}
           href="https://github.com/pictomo"
           target="_blank"
         >
           <FaGithub />
           GitHub
-        </Link>
+        </a>
         <br />
-        <Link
+        <a
           className={LinkStyle.link}
           href="https://www.instagram.com/pictomo_m"
           target="_blank"
         >
           <FaInstagram />
           Instagram
-        </Link>
+        </a>
         <br />
-        <Link
+        <a
           className={LinkStyle.link}
           href="https://www.facebook.com/MPictomo"
           target="_blank"
         >
           <FaFacebook />
           Facebook
-        </Link>
+        </a>
         <br />
-        <Link
+        <a
           className={LinkStyle.link}
           href="https://twitter.com/MPictomo"
           target="_blank"
         >
           <FaXTwitter />
-        </Link>
+        </a>
         <br />
-        <Link
+        <a
           className={LinkStyle.link}
           href="https://qiita.com/pictomo_m"
           target="_blank"
         >
           {/* <SiQiita /> */}
           Qiita
-        </Link>
+        </a>
       </div>
       <br />
       <Crowd4UBanner locale={locale} />

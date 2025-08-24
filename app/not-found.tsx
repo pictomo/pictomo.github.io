@@ -27,13 +27,13 @@ const NotFound = () => {
       </p>
       <p>
         As an aside, I really love this music{" "}
-        <Link
+        <a
           className={LinkStyle.link}
           href="https://youtu.be/gnnIrTLlLyA?si=JRpU6ue7rnpy9Xsd"
           target="_blank"
         >
           Knife Party - 404
-        </Link>{" "}
+        </a>{" "}
         <FaRegSmileBeam />
       </p>
     </div>
