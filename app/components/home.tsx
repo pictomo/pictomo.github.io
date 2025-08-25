@@ -15,7 +15,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
         {t({ ja: "English", en: "日本語" }, locale)}
       </Link>
       <div>
-        <h3>Profile</h3>
+        <h2>Profile</h2>
         {t(
           {
             ja: (
@@ -42,7 +42,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
         )}
       </div>
       <div>
-        <h3>History</h3>
+        <h2>History</h2>
         {t(
           {
             ja: (
@@ -69,7 +69,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
         )}
       </div>
       <div>
-        <h3>Affiliation</h3>
+        <h2>Affiliation</h2>
         <p>
           <a
             className={LinkStyle.link}
@@ -78,6 +78,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           >
             {t({ ja: "筑波大学", en: "University of Tsukuba," }, locale)}
           </a>
+          &nbsp;
           <a
             className={LinkStyle.link}
             href="https://www.chs.tsukuba.ac.jp"
@@ -85,12 +86,13 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           >
             {t(
               {
-                ja: " 人間総合科学学術院",
-                en: " Graduate School of Comprehensive Human Sciences,",
+                ja: "人間総合科学学術院",
+                en: "Graduate School of Comprehensive Human Sciences,",
               },
               locale
             )}
           </a>
+          &nbsp;
           <a
             className={LinkStyle.link}
             href="https://informatics.tsukuba.ac.jp"
@@ -98,14 +100,14 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           >
             {t(
               {
-                ja: " 人間総合科学研究群 情報学学位プログラム",
-                en: " Master's and Doctoral Programs in Informatics,",
+                ja: "人間総合科学研究群 情報学学位プログラム",
+                en: "Master's and Doctoral Programs in Informatics,",
               },
               locale
             )}
-            &nbsp;
           </a>
-          {t({ ja: " 修士1年生", en: " Master's 1st year" }, locale)}
+          &nbsp;
+          {t({ ja: "修士1年生", en: "Master's 1st year" }, locale)}
           <br />
           <a
             className={LinkStyle.link}
@@ -114,6 +116,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           >
             {t({ ja: "筑波大学", en: "University of Tsukuba," }, locale)}
           </a>
+          &nbsp;
           <a
             className={LinkStyle.link}
             href="https://fusioncomplab.org"
@@ -121,8 +124,8 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           >
             {t(
               {
-                ja: " 融合知能デザイン研究室",
-                en: " FusionCompLab",
+                ja: "融合知能デザイン研究室",
+                en: "FusionCompLab",
               },
               locale
             )}
@@ -135,8 +138,9 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           >
             {t({ ja: "株式会社ゼロフィールド", en: "ZEROFIELD, Inc." }, locale)}
           </a>
+          &nbsp;
           {t(
-            { ja: " インターン (休暇中)", en: " Internship (on leave)" },
+            { ja: "インターン (休暇中)", en: "Internship (on leave)" },
             locale
           )}
           <br />
@@ -147,7 +151,8 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           >
             {t({ ja: "Ｓｋｙ株式会社", en: "Sky Co., LTD." }, locale)}
           </a>
-          {t({ ja: " インターン", en: " Internship" }, locale)}
+          &nbsp;
+          {t({ ja: "インターン", en: "Internship" }, locale)}
           <br />
           <a
             className={LinkStyle.link}
@@ -155,15 +160,16 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
             target="_blank"
           >
             {t(
-              { ja: "ライフイズテック株式会社 ", en: "Life is Tech, Inc. " },
+              { ja: "ライフイズテック株式会社", en: "Life is Tech, Inc." },
               locale
             )}
           </a>
-          {t({ ja: " メンター", en: " Mentor" }, locale)}
+          &nbsp;
+          {t({ ja: "メンター", en: "Mentor" }, locale)}
         </p>
       </div>
       <div>
-        <h3>Links</h3>
+        <h2>Links</h2>
         <a
           className={LinkStyle.link}
           href="https://github.com/pictomo"
