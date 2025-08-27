@@ -31,7 +31,8 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               <p>
                 I'm striving to become a hyper-IT talent.
                 <br />
-                My technical interests are Web, language processing, crypto, etc.
+                My technical interests are Web, language processing, crypto,
+                etc.
                 <br />
                 My hobbies are reading novels, playing the piano, brewing tea,
                 exploring ancient cities, etc...
@@ -214,8 +215,6 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           Qiita
         </a>
       </div>
-      <br />
-      <Crowd4UBanner locale={locale} />
       <br />
       <p>
         *{" "}
