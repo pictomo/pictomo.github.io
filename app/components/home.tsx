@@ -22,7 +22,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               <p>
                 ハイパーIT人材を目指して奮闘中。
                 <br />
-                技術的な興味は、言語処理系、DB、cryptoなど。
+                技術的な興味は、Web, 言語処理系、cryptoなど。
                 <br />
                 趣味は、小説を読む、ピアノを弾く、お茶を点てる、古都を巡る、などなど。
               </p>
@@ -31,7 +31,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               <p>
                 I'm striving to become a hyper-IT talent.
                 <br />
-                My technical interests are language processing, DB, crypto, etc.
+                My technical interests are Web, language processing, crypto, etc.
                 <br />
                 My hobbies are reading novels, playing the piano, brewing tea,
                 exploring ancient cities, etc...
