@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 import { I18nLocale, t } from "@/app/i18n/config";
-import { Crowd4UBanner } from "@/app/components/Crowd4UBanner";
 import { FaGithub, FaInstagram, FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 // import { SiQiita } from "react-icons/si";
 import LinkStyle from "@/app/styles/link.module.scss";
+import { SiKeybase } from "react-icons/si";
 
 const Home = ({ locale }: { locale: I18nLocale }) => {
   return (
@@ -213,6 +213,15 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
         >
           {/* <SiQiita /> */}
           Qiita
+        </a>
+        <br />
+        <a
+          className={LinkStyle.link}
+          href="https://keybase.io/pictomo"
+          target="_blank"
+        >
+          <SiKeybase />
+          Keybase
         </a>
       </div>
       <br />

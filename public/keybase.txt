@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/pictomo
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://pictomo.github.io
+  * I am pictomo (https://keybase.io/pictomo) on keybase.
+  * I have a public key ASA3Q7mRwFvn91T-cvJe8hTu987nIjyrZUqsy4UhP-iDJgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01203743b991c05be7f754fe72f25ef214eef7cee7223cab654aaccb85213fe883260a",
+      "host": "keybase.io",
+      "kid": "01203743b991c05be7f754fe72f25ef214eef7cee7223cab654aaccb85213fe883260a",
+      "uid": "d75a7ca17ba91197113bb011c6b0bb19",
+      "username": "pictomo"
+    },
+    "merkle_root": {
+      "ctime": 1757837178,
+      "hash": "cf81add686ff7f7e314dbd5159bb44c9181e4900bcf94e79cc92edb6e84aab93550336df2dd76f6d9bdee60f3bdac5c7afda7f43ab44a1e481a84d731df60893",
+      "hash_meta": "f3d54474a9a832e93552e0afbc2995f9e579feb190b08e7da101f886a8051300",
+      "seqno": 27088138
+    },
+    "service": {
+      "entropy": "QrmkdcAjr8b9Ql7ear34F0NV",
+      "hostname": "pictomo.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.5.1"
+  },
+  "ctime": 1757837220,
+  "expire_in": 504576000,
+  "prev": "4a7c90df4723b80c4c85cc2e1a08c589de7f16de9a68296f5d4d813be001376c",
+  "seqno": 10,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgN0O5kcBb5/dU/nLyXvIU7vfO5yI8q2VKrMuFIT/ogyYKp3BheWxvYWTESpcCCsQgSnyQ30cjuAxMhcwuGgjFid5/Ft6aaClvXU2BO+ABN2zEIOlAGdEbwMj4Zdj79j0PAaIvsEXV/iYwNKNdrwtoU7cxAgHCo3NpZ8RALxeSCxnKqSGXsMX6z22wuCRcoDwtpVkd1pL7j67brCFlvkr6tS7DL06IqA0nbjRXugXta28hUO1bbi16VB08B6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIMsnW1bZoMNV91hUMOrZKYgG+7VGyTqX038LlV+2G38ro3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/pictomo
+
+==================================================================
