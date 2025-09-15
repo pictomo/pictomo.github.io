@@ -2,7 +2,6 @@
 
 import { I18nLocale } from "../i18n/config";
 import { t } from "../i18n/config";
-import Link from "next/link";
 // import Script from "next/script";
 
 export const Crowd4UBanner = ({ locale }: { locale: I18nLocale }) => {

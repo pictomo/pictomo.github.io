@@ -5,7 +5,8 @@ import { FaGithub, FaInstagram, FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 // import { SiQiita } from "react-icons/si";
 import LinkStyle from "@/app/styles/link.module.scss";
-import { SiKeybase } from "react-icons/si";
+import { SiBookmeter, SiKeybase } from "react-icons/si";
+import { BsBookFill } from "react-icons/bs";
 
 const Home = ({ locale }: { locale: I18nLocale }) => {
   return (
@@ -222,6 +223,24 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
         >
           <SiKeybase />
           Keybase
+        </a>
+        <br />
+        <a
+          className={LinkStyle.link}
+          href="https://booklog.jp/users/pictomo"
+          target="_blank"
+        >
+          <BsBookFill />
+          {t({ ja: "ブクログ", en: "Booklog" }, locale)}
+        </a>
+        <br />
+        <a
+          className={LinkStyle.link}
+          href="https://bookmeter.com/users/1622126"
+          target="_blank"
+        >
+          <SiBookmeter />
+          {t({ ja: "読書メーター", en: "bookmeter" }, locale)}
         </a>
       </div>
       <br />
