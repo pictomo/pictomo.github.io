@@ -5,6 +5,7 @@ import { FaGithub, FaInstagram, FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 // import { SiQiita } from "react-icons/si";
 import LinkStyle from "@/app/styles/link.module.scss";
+import QiitaLogoStyle from "@/app/styles/qiitaLogo.module.scss";
 import { SiBookmeter, SiKeybase } from "react-icons/si";
 import { BsBookFill } from "react-icons/bs";
 
@@ -208,12 +209,12 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
         </a>
         <br />
         <a
-          className={LinkStyle.link}
+          className={`${LinkStyle.link} ${LinkStyle.noUnderline}`}
           href="https://qiita.com/pictomo_m"
           target="_blank"
         >
           {/* <SiQiita /> */}
-          Qiita
+          <span className={QiitaLogoStyle.font}>Qiita</span>
         </a>
         <br />
         <a
