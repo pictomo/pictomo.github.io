@@ -1,22 +1,22 @@
 .link {
-  color: #a5a5a5;
+  color: var(--text-unfocus);
   text-decoration: underline;
   cursor: pointer;
 
   &:link {
-    color: #a5a5a5; /* 通常状態のリンクの色 */
+    color: var(--text-unfocus); /* 通常状態のリンクの色 */
   }
 
   &:visited {
-    color: #a5a5a5; /* 訪問済みのリンクの色 */
+    color: var(--text-unfocus); /* 訪問済みのリンクの色 */
   }
 
   &:hover {
-    color: #f3f3f3; /* ホバー状態のリンクの色 */
+    color: var(--text-primary); /* ホバー状態のリンクの色 */
   }
 
   &:active {
-    color: #a5a5a5; /* アクティブ状態のリンクの色 */
+    color: var(--text-unfocus); /* アクティブ状態のリンクの色 */
   }
 }
 .noUnderline {

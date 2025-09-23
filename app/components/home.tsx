@@ -8,6 +8,7 @@ import LinkStyle from "@/app/styles/link.module.scss";
 import QiitaLogoStyle from "@/app/styles/qiitaLogo.module.scss";
 import { SiBookmeter, SiKeybase } from "react-icons/si";
 import { BsBookFill } from "react-icons/bs";
+import { ThemeChanger } from "./themeChanger";
 
 const Home = ({ locale }: { locale: I18nLocale }) => {
   return (
@@ -16,6 +17,9 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
       <Link className={LinkStyle.link} href={locale === "ja" ? "/en" : "/ja"}>
         {t({ ja: "English", en: "日本語" }, locale)}
       </Link>
+      <br />
+      <br />
+      <ThemeChanger locale={locale} />
       <div>
         <h2>Profile</h2>
         {t(

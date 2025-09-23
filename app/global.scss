@@ -1,9 +1,21 @@
 // import fonts
 @import url("./fonts/codec-cold.css");
 
+:root {
+  --background-primary: #e2e2e2;
+  --text-primary: #303030;
+  --text-unfocus: #676767;
+}
+
+:root[data-theme="dark"] {
+  --background-primary: #303030;
+  --text-primary: #e2e2e2;
+  --text-unfocus: #a5a5a5;
+}
+
 body {
-  background-color: #303030; /* 黒っぽい背景色 */
-  color: #e2e2e2; /* 白に近い文字色 */
+  background-color: var(--background-primary);
+  color: var(--text-primary);
   text-align: center;
 
   // reset user agent stylesheet
