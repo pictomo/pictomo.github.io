@@ -6,23 +6,16 @@ import { FaXTwitter } from "react-icons/fa6";
 // import { SiQiita } from "react-icons/si";
 import LinkStyle from "@/app/styles/link.module.scss";
 import QiitaLogoStyle from "@/app/styles/qiitaLogo.module.scss";
-import ImgStyle from "@/app/styles/img.module.scss";
 import { SiBookmeter, SiKeybase } from "react-icons/si";
 import { BsBookFill } from "react-icons/bs";
 import { ThemeChanger } from "./themeChanger";
+import { IconsView } from "./iconsView";
 
 const Home = ({ locale }: { locale: I18nLocale }) => {
   return (
     <div>
       <h1>Hello, This is Pictomo!</h1>
-      <div>
-        <img
-          src="/favicon.ico"
-          alt="favicon"
-          width="256"
-          className={ImgStyle.pixelArt}
-        />
-      </div>
+      <IconsView />
       <br />
       <Link className={LinkStyle.link} href={locale === "ja" ? "/en" : "/ja"}>
         {t({ ja: "English", en: "日本語" }, locale)}
