@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ImgStyle from "@/app/styles/img.module.scss";
 import layeringStyle from "@/app/styles/layering.module.scss";
 import style from "./icons-view.module.scss";

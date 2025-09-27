@@ -8,17 +8,19 @@ const ThemeChanger = ({ locale }: { locale: I18nLocale }) => {
   const { theme, setTheme, resolvedTheme } = useTheme();
 
   return (
-    <div
-      className={linkStyles.link}
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-    >
-      {t(
-        {
-          ja: resolvedTheme === "dark" ? "ライトモード" : "ダークモード",
-          en: resolvedTheme === "dark" ? "Light Mode" : "Dark Mode",
-        },
-        locale
-      )}
+    <div>
+      <span
+        className={linkStyles.link}
+        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      >
+        {t(
+          {
+            ja: resolvedTheme === "dark" ? "ライトモード" : "ダークモード",
+            en: resolvedTheme === "dark" ? "Light Mode" : "Dark Mode",
+          },
+          locale
+        )}
+      </span>
     </div>
   );
 };
