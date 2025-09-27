@@ -17,7 +17,11 @@ const IconsView = () => {
       onClick={() => setQr(!qr)}
     >
       <img
-        src="/favicon.ico"
+        src={
+          resolvedTheme === "dark"
+            ? "/favicon-dark.ico"
+            : "/favicon-high-quality.jpg"
+        }
         alt="favicon"
         className={`${ImgStyle.pixelArt} ${layeringStyle.layer} ${
           qr ? layeringStyle.first : layeringStyle.third
