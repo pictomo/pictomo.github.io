@@ -1,4 +1,4 @@
-import Home from "@/app/components/home";
+import Home from "./home";
 import { i18nLocales, I18nLocale } from "../i18n/config";
 
 export const dynamicParams = false;

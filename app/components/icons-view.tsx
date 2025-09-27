@@ -3,9 +3,9 @@
 import { useState } from "react";
 import ImgStyle from "@/app/styles/img.module.scss";
 import layeringStyle from "@/app/styles/layering.module.scss";
-import style from "./iconsView.module.scss";
+import style from "./icons-view.module.scss";
 
-export const IconsView = () => {
+const IconsView = () => {
   const [qr, setQr] = useState(false);
 
   return (
@@ -28,3 +28,5 @@ export const IconsView = () => {
     </div>
   );
 };
+
+export default IconsView;

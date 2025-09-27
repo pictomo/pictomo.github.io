@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Home from "./components/home";
+import Home from "@/app/[locale]/home";
 import { defaultLocale, I18nLocale, i18nLocales } from "./i18n/config";
 
 const Page = () => {

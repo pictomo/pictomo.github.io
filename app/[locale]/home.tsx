@@ -5,11 +5,11 @@ import { FaGithub, FaInstagram, FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 // import { SiQiita } from "react-icons/si";
 import LinkStyle from "@/app/styles/link.module.scss";
-import QiitaLogoStyle from "@/app/styles/qiitaLogo.module.scss";
+import QiitaLogoStyle from "@/app/styles/qiita-logo.module.scss";
 import { SiBookmeter, SiKeybase } from "react-icons/si";
 import { BsBookFill } from "react-icons/bs";
-import { ThemeChanger } from "./themeChanger";
-import { IconsView } from "./iconsView";
+import ThemeChanger from "@/app/components/theme-changer";
+import IconsView from "@/app/components/icons-view";
 
 const Home = ({ locale }: { locale: I18nLocale }) => {
   return (
