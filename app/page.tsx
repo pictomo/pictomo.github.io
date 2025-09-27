@@ -10,7 +10,6 @@ const Page = () => {
 
   useEffect(() => {
     const detectedLocale = window.navigator.language;
-    // const detectedLocale = "hoge";
     if (i18nLocales.includes(detectedLocale as I18nLocale)) {
       router.replace("/" + detectedLocale);
     } else {

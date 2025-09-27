@@ -1,12 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ImgStyle from "@/app/styles/img.module.scss";
 import layeringStyle from "@/app/styles/layering.module.scss";
 import style from "./icons-view.module.scss";
+import { QRCodeSVG } from "qrcode.react";
+import { useTheme } from "next-themes";
 
 const IconsView = () => {
   const [qr, setQr] = useState(false);
+  const { resolvedTheme } = useTheme();
 
   return (
     <div
@@ -20,9 +23,12 @@ const IconsView = () => {
           qr ? layeringStyle.first : layeringStyle.third
         } ${style.art1}`}
       />
-      <img
-        src="/qr_pictomo.github.io.png"
-        alt="favicon"
+      <QRCodeSVG
+        value={window.location.origin}
+        size={256}
+        bgColor={resolvedTheme === "dark" ? "#000000" : "#ffffff"}
+        fgColor={resolvedTheme === "dark" ? "#ffffff" : "#000000"}
+        marginSize={2}
         className={`${layeringStyle.layer} ${layeringStyle.second} ${style.art2}`}
       />
     </div>
