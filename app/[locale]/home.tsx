@@ -255,7 +255,12 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           Keybase
         </a>
         <br />
-        <Link className={LinkStyle.link} href="/keybase.txt" target="_blank">
+        <a
+          className={LinkStyle.link}
+          href="/keybase.txt"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <AiFillSignature />
           {t(
             {
@@ -264,7 +269,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
             },
             locale
           )}
-        </Link>
+        </a>
       </div>
       <br />
       <p>
