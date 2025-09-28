@@ -5,7 +5,7 @@ import IconsView from "@/app/components/icons-view";
 
 // import { SiQiita } from "react-icons/si";
 import { FaGithub, FaInstagram, FaFacebook } from "react-icons/fa";
-import { FaRegCopyright, FaXTwitter } from "react-icons/fa6";
+import { FaRegCopyright, FaUnity, FaXTwitter } from "react-icons/fa6";
 import { SiBookmeter, SiKeybase } from "react-icons/si";
 import { BsBookFill } from "react-icons/bs";
 import { AiFillSignature } from "react-icons/ai";
@@ -231,6 +231,15 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
         >
           {/* <SiQiita /> */}
           <span className={QiitaLogoStyle.font}>Qiita</span>
+        </a>
+        <br />
+        <a
+          className={LinkStyle.link}
+          href="https://unityroom.com/users/jhm09bwdtxc18rlenf73"
+          target="_blank"
+        >
+          <FaUnity className={`${IconStyle.adjust} ${IconStyle.leftMargin}`} />
+          unityroom
         </a>
         <br />
         <a
