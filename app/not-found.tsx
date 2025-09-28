@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { FaRegSmileBeam } from "react-icons/fa";
 import LinkStyle from "@/app/styles/link.module.scss";
 import CenteredStyle from "@/app/styles/centered.module.scss";
+import IconStyle from "@/app/styles/icon.module.scss";
 
 const NotFound = () => {
   const router = useRouter();
@@ -36,7 +37,7 @@ const NotFound = () => {
           >
             Knife Party - 404
           </a>{" "}
-          <FaRegSmileBeam />
+          <FaRegSmileBeam className={IconStyle.adjust} />
         </p>
       </div>
     </div>

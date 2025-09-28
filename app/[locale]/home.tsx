@@ -12,11 +12,12 @@ import { AiFillSignature } from "react-icons/ai";
 
 import LinkStyle from "@/app/styles/link.module.scss";
 import QiitaLogoStyle from "@/app/styles/qiita-logo.module.scss";
+import IconStyle from "@/app/styles/icon.module.scss";
 
 const Home = ({ locale }: { locale: I18nLocale }) => {
   return (
     <div>
-      <h1>Hello, This is Pictomo!</h1>
+      <h1>Hello, This is pictomo !</h1>
       <IconsView />
       <br />
       <Link className={LinkStyle.link} href={locale === "ja" ? "/en" : "/ja"}>
@@ -187,7 +188,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           href="https://github.com/pictomo"
           target="_blank"
         >
-          <FaGithub />
+          <FaGithub className={`${IconStyle.adjust} ${IconStyle.leftMargin}`} />
           GitHub
         </a>
         <br />
@@ -196,7 +197,9 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           href="https://www.instagram.com/pictomo_m"
           target="_blank"
         >
-          <FaInstagram />
+          <FaInstagram
+            className={`${IconStyle.adjust} ${IconStyle.leftMargin}`}
+          />
           Instagram
         </a>
         <br />
@@ -205,7 +208,9 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           href="https://www.facebook.com/MPictomo"
           target="_blank"
         >
-          <FaFacebook />
+          <FaFacebook
+            className={`${IconStyle.adjust} ${IconStyle.leftMargin}`}
+          />
           Facebook
         </a>
         <br />
@@ -214,7 +219,9 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           href="https://twitter.com/MPictomo"
           target="_blank"
         >
-          <FaXTwitter />
+          <FaXTwitter
+            className={`${IconStyle.adjust} ${IconStyle.leftMargin}`}
+          />
         </a>
         <br />
         <a
@@ -231,7 +238,9 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           href="https://booklog.jp/users/pictomo"
           target="_blank"
         >
-          <BsBookFill />
+          <BsBookFill
+            className={`${IconStyle.adjust} ${IconStyle.leftMargin}`}
+          />
           {t({ ja: "ブクログ", en: "Booklog" }, locale)}
         </a>
         <br />
@@ -240,7 +249,9 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           href="https://bookmeter.com/users/1622126"
           target="_blank"
         >
-          <SiBookmeter />
+          <SiBookmeter
+            className={`${IconStyle.adjust} ${IconStyle.leftMargin}`}
+          />
           {t({ ja: "読書メーター", en: "bookmeter" }, locale)}
         </a>
       </div>
@@ -251,7 +262,9 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           href="https://keybase.io/pictomo"
           target="_blank"
         >
-          <SiKeybase />
+          <SiKeybase
+            className={`${IconStyle.adjust} ${IconStyle.leftMargin}`}
+          />
           Keybase
         </a>
         <br />
@@ -261,7 +274,9 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <AiFillSignature />
+          <AiFillSignature
+            className={`${IconStyle.adjust} ${IconStyle.leftMargin}`}
+          />
           {t(
             {
               ja: "署名",
@@ -273,7 +288,8 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
       </div>
       <br />
       <p>
-        <FaRegCopyright /> 2024-{new Date().getFullYear()} pictomo
+        <FaRegCopyright className={IconStyle.adjust} /> 2024-
+        {new Date().getFullYear()} pictomo
       </p>
     </div>
   );
