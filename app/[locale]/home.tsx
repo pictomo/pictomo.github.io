@@ -1,15 +1,17 @@
-import Link from "next/link";
-
 import { I18nLocale, t } from "@/app/i18n/config";
-import { FaGithub, FaInstagram, FaFacebook } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-// import { SiQiita } from "react-icons/si";
-import LinkStyle from "@/app/styles/link.module.scss";
-import QiitaLogoStyle from "@/app/styles/qiita-logo.module.scss";
-import { SiBookmeter, SiKeybase } from "react-icons/si";
-import { BsBookFill } from "react-icons/bs";
+import Link from "next/link";
 import ThemeChanger from "@/app/components/theme-changer";
 import IconsView from "@/app/components/icons-view";
+
+// import { SiQiita } from "react-icons/si";
+import { FaGithub, FaInstagram, FaFacebook } from "react-icons/fa";
+import { FaRegCopyright, FaXTwitter } from "react-icons/fa6";
+import { SiBookmeter, SiKeybase } from "react-icons/si";
+import { BsBookFill } from "react-icons/bs";
+import { AiFillSignature } from "react-icons/ai";
+
+import LinkStyle from "@/app/styles/link.module.scss";
+import QiitaLogoStyle from "@/app/styles/qiita-logo.module.scss";
 
 const Home = ({ locale }: { locale: I18nLocale }) => {
   return (
@@ -226,15 +228,6 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
         <br />
         <a
           className={LinkStyle.link}
-          href="https://keybase.io/pictomo"
-          target="_blank"
-        >
-          <SiKeybase />
-          Keybase
-        </a>
-        <br />
-        <a
-          className={LinkStyle.link}
           href="https://booklog.jp/users/pictomo"
           target="_blank"
         >
@@ -251,16 +244,31 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           {t({ ja: "読書メーター", en: "bookmeter" }, locale)}
         </a>
       </div>
+      <div>
+        <h2>Authenticity</h2>
+        <a
+          className={LinkStyle.link}
+          href="https://keybase.io/pictomo"
+          target="_blank"
+        >
+          <SiKeybase />
+          Keybase
+        </a>
+        <br />
+        <Link className={LinkStyle.link} href="/keybase.txt" target="_blank">
+          <AiFillSignature />
+          {t(
+            {
+              ja: "署名",
+              en: "Signature",
+            },
+            locale
+          )}
+        </Link>
+      </div>
       <br />
       <p>
-        *{" "}
-        {t(
-          {
-            ja: "当サイトは未完成です。暇を見つけて増改築してゆきます。",
-            en: "This site is incomplete. I will add and modify it as I find time.",
-          },
-          locale
-        )}
+        <FaRegCopyright /> 2024-{new Date().getFullYear()} pictomo
       </p>
     </div>
   );
