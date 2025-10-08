@@ -3,6 +3,7 @@
 import { useTheme } from "next-themes";
 import { I18nLocale, t } from "@/app/i18n/config";
 import linkStyles from "@/app/styles/link.module.scss";
+import ThemeContainer from "./theme-container";
 
 const ThemeChanger = ({ locale }: { locale: I18nLocale }) => {
   const { theme, setTheme, resolvedTheme } = useTheme();
@@ -13,13 +14,23 @@ const ThemeChanger = ({ locale }: { locale: I18nLocale }) => {
         className={linkStyles.link}
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       >
-        {t(
-          {
-            ja: resolvedTheme === "dark" ? "ライトモード" : "ダークモード",
-            en: resolvedTheme === "dark" ? "Light Mode" : "Dark Mode",
-          },
-          locale
-        )}
+        <ThemeContainer
+          defaultContent={t(
+            {
+              ja: "カラーモード",
+              en: "Color Mode",
+            },
+            locale
+          )}
+        >
+          {t(
+            {
+              ja: resolvedTheme === "dark" ? "ライトモード" : "ダークモード",
+              en: resolvedTheme === "dark" ? "Light Mode" : "Dark Mode",
+            },
+            locale
+          )}
+        </ThemeContainer>
       </span>
     </div>
   );
