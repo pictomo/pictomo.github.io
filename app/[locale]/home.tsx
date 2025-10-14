@@ -36,7 +36,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
                 <br />
                 技術的な興味は、Web, 言語処理系、cryptoなど。
                 <br />
-                趣味は、小説を読む、ピアノを弾く、お茶を点てる、古都を巡る、などなど。
+                趣味は、小説を読む、ピアノを弾く、古都を巡る、ホラー・オカルト、などなど。
               </p>
             ),
             en: (
@@ -46,8 +46,8 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
                 My technical interests are Web, language processing, crypto,
                 etc.
                 <br />
-                My hobbies are reading novels, playing the piano, brewing tea,
-                exploring ancient cities, etc...
+                My hobbies are reading novels, playing the piano, exploring
+                ancient cities, horror and occult, etc...
               </p>
             ),
           },
