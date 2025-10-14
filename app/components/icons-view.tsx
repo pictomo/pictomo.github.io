@@ -7,8 +7,7 @@ import style from "./icons-view.module.scss";
 import { QRCodeSVG } from "qrcode.react";
 import { useTheme } from "next-themes";
 import ThemeContainer from "./theme-container";
-
-const defaultURL = "https://pictomo.github.io";
+import { defaultURL } from "@/app/global";
 
 const IconsView = () => {
   const [qr, setQr] = useState(false);
@@ -58,7 +57,7 @@ const IconsView = () => {
         />
         <QRCodeSVG
           value={url}
-          size={256}
+          size={256 - 3 * 2}
           bgColor={resolvedTheme === "dark" ? "#000000" : "#ffffff"}
           fgColor={resolvedTheme === "dark" ? "#ffffff" : "#000000"}
           marginSize={2}

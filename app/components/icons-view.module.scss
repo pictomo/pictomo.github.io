@@ -8,9 +8,11 @@
   top: 0px;
   left: calc(50% - 128px - 20px);
 }
+
 .art2 {
-  width: 256px;
+  --border-width: 3px;
+  width: calc(256px - var(--border-width) * 2);
   top: 40px;
   left: calc(50% - 128px + 20px);
-  border: 1px solid var(--text-primary);
+  border: var(--border-width) solid var(--text-primary);
 }
