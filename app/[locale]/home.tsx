@@ -5,7 +5,12 @@ import IconsView from "@/app/components/icons-view";
 
 // import { SiQiita } from "react-icons/si";
 import { FaGithub, FaInstagram, FaFacebook } from "react-icons/fa";
-import { FaRegCopyright, FaUnity, FaXTwitter } from "react-icons/fa6";
+import {
+  FaLinkedin,
+  FaRegCopyright,
+  FaUnity,
+  FaXTwitter,
+} from "react-icons/fa6";
 import { SiBookmeter, SiKeybase } from "react-icons/si";
 import { BsBookFill } from "react-icons/bs";
 import { AiFillSignature } from "react-icons/ai";
@@ -290,6 +295,23 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
             {
               ja: "署名",
               en: "Signature",
+            },
+            locale
+          )}
+        </a>
+        <br />
+        <a
+          className={LinkStyle.link}
+          href="https://www.linkedin.com/in/pictomo"
+          target="_blank"
+        >
+          <FaLinkedin
+            className={`${IconStyle.adjust} ${IconStyle.leftMargin}`}
+          />
+          {t(
+            {
+              ja: "LinkedIn (認証済)",
+              en: "LinkedIn (verified)",
             },
             locale
           )}
