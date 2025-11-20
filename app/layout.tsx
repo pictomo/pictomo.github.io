@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./global.scss";
 import { ThemeProvider } from "next-themes";
+import P5 from "./components/p5";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,6 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        <P5 />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
