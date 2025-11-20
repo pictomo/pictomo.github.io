@@ -6,7 +6,7 @@ import layeringStyle from "@/app/styles/layering.module.scss";
 import style from "./icons-view.module.scss";
 import { QRCodeSVG } from "qrcode.react";
 import { useTheme } from "next-themes";
-import ThemeContainer from "./theme-container";
+import MountContainer from "./mount-container";
 import { defaultURL } from "@/app/global";
 
 const IconsView = () => {
@@ -23,7 +23,7 @@ const IconsView = () => {
       className={`${layeringStyle.origin} ${style.artsOrigin}`}
       onClick={() => setQr(!qr)}
     >
-      <ThemeContainer
+      <MountContainer
         defaultContent={
           <>
             <img
@@ -63,7 +63,7 @@ const IconsView = () => {
           marginSize={2}
           className={`${layeringStyle.layer} ${layeringStyle.second} ${style.art2}`}
         />
-      </ThemeContainer>
+      </MountContainer>
     </div>
   );
 };
