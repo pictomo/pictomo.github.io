@@ -53,10 +53,44 @@ const createSketch = (p: P5Instance) => {
   let raindrops: Raindrop[] = []; // Array of active raindrops
   let lastSpawnTime = 0; // Timestamp of last spawn
 
+  // Interaction coordinates (track window events directly)
+  let interactionX = -1000;
+  let interactionY = -1000;
+
+  // Event listeners for manual tracking
+  const updateMouse = (e: MouseEvent) => {
+    interactionX = e.clientX;
+    interactionY = e.clientY;
+  };
+
+  const updateTouch = (e: TouchEvent) => {
+    if (e.touches.length > 0) {
+      interactionX = e.touches[0].clientX;
+      interactionY = e.touches[0].clientY;
+    }
+  };
+
   // Initial setup: create canvas
   const setup = () => {
     const canvas = p.createCanvas(p.windowWidth, p.windowHeight);
     canvas.parent("p5-background");
+
+    // Allow clicks and scrolls to pass through the canvas
+    canvas.style("pointer-events", "none");
+
+    // Attach global listeners to track input even when scrolling
+    window.addEventListener("mousemove", updateMouse);
+    window.addEventListener("touchstart", updateTouch, { passive: true });
+    window.addEventListener("touchmove", updateTouch, { passive: true });
+  };
+
+  // Clean up event listeners when sketch is removed
+  const originalRemove = p.remove;
+  p.remove = () => {
+    window.removeEventListener("mousemove", updateMouse);
+    window.removeEventListener("touchstart", updateTouch);
+    window.removeEventListener("touchmove", updateTouch);
+    if (originalRemove) originalRemove.call(p);
   };
 
   // Handle window resize events
@@ -189,7 +223,7 @@ const createSketch = (p: P5Instance) => {
 
     // Calculate scroll offset and cache common values
     const scrollY = window.scrollY * CONFIG.SCROLL_PARALLAX_FACTOR;
-    const { mouseX, mouseY, windowWidth } = p;
+    const { windowWidth } = p;
     const centerX = windowWidth >> 1; // Bit shift for fast division by 2
 
     // Draw connection lines first (behind raindrops)
@@ -199,7 +233,7 @@ const createSketch = (p: P5Instance) => {
     const len = raindrops.length;
     for (let i = 0; i < len; i++) {
       const drop = raindrops[i];
-      applyMouseRepel(drop, mouseX, mouseY, scrollY);
+      applyMouseRepel(drop, interactionX, interactionY, scrollY);
       const alpha = calculateAlpha(drop, now, centerX);
       drawRaindrop(drop, now, scrollY, alpha);
     }
@@ -215,10 +249,15 @@ const createSketch = (p: P5Instance) => {
  */
 const P5 = () => {
   useEffect(() => {
+    let p5Instance: any = null;
     // Dynamically import p5.js library to avoid SSR issues
     import("p5").then((p5Module) => {
-      new p5Module.default(createSketch);
+      p5Instance = new p5Module.default(createSketch);
     });
+
+    return () => {
+      if (p5Instance) p5Instance.remove();
+    };
   }, []);
 
   return (
