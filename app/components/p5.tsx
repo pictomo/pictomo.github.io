@@ -12,23 +12,22 @@ import MountContainer from "./mount-container";
 // Configuration constants
 const CONFIG = {
   LIFESPAN: 12000, // Lifetime of each raindrop in milliseconds
-  SPAWN_RATE: 5, // Number of raindrops spawned per second
+  SPAWN_RATE_RATIO: 20 / (1920 * 1080), // Spawn rate per pixel area (default: 5 drops/sec for 1920x1080)
   MAX_REPEL_DISTANCE: 1000, // Maximum distance for mouse repel effect
   MAX_REPEL_SPEED: 3, // Maximum speed of repel movement
   MIN_SIZE: 40, // Minimum size of raindrops
   MAX_SIZE: 120, // Maximum size of raindrops
   INITIAL_ALPHA: 100, // Initial opacity value
   FILL_COLOR: [128, 128, 128] as const, // RGB color for raindrops
-  SCROLL_PARALLAX_FACTOR: 0.3, // Parallax scrolling speed multiplier
+  SCROLL_PARALLAX_FACTOR: 0.5, // Parallax scrolling speed multiplier
   ALPHA_FADE_EXPONENT: 1.5, // Exponent for center distance fade calculation
-  CONNECTION_DISTANCE: 300, // Maximum distance to draw connection lines
+  CONNECTION_DISTANCE: 256, // Maximum distance to draw connection lines
   CONNECTION_LINE_COLOR: [128, 128, 128] as const, // RGB color for connection lines
   CONNECTION_LINE_WEIGHT: 1.5, // Thickness of connection lines
   CONNECTION_MAX_ALPHA: 80, // Maximum opacity for connection lines
 } as const;
 
 // Pre-calculated constants for performance optimization
-const SPAWN_INTERVAL = 1000 / CONFIG.SPAWN_RATE; // Time between spawns in ms
 const MAX_DIST_SQ = CONFIG.MAX_REPEL_DISTANCE ** 2; // Squared distance for repel effect
 const CONNECTION_DIST_SQ = CONFIG.CONNECTION_DISTANCE ** 2; // Squared distance for connections
 const LIFESPAN_INV = 1 / CONFIG.LIFESPAN; // Inverse of lifespan for faster calculation
@@ -52,6 +51,7 @@ type P5Instance = any;
 const createSketch = (p: P5Instance) => {
   let raindrops: Raindrop[] = []; // Array of active raindrops
   let lastSpawnTime = 0; // Timestamp of last spawn
+  let spawnInterval = 0; // Dynamic spawn interval based on area
 
   // Interaction coordinates (track window events directly)
   let interactionX = -1000;
@@ -88,6 +88,13 @@ const createSketch = (p: P5Instance) => {
     }
   };
 
+  // Calculate spawn rate based on viewport area
+  const updateSpawnRate = () => {
+    const area = p.windowWidth * p.windowHeight;
+    const spawnRate = area * CONFIG.SPAWN_RATE_RATIO;
+    spawnInterval = 1000 / spawnRate; // Time between spawns in ms
+  };
+
   // Initial setup: create canvas
   const setup = () => {
     const canvas = p.createCanvas(p.windowWidth, p.windowHeight);
@@ -95,6 +102,9 @@ const createSketch = (p: P5Instance) => {
 
     // Allow clicks and scrolls to pass through the canvas
     canvas.style("pointer-events", "none");
+
+    // Initialize spawn rate
+    updateSpawnRate();
 
     // Attach global listeners to track input even when scrolling
     window.addEventListener("mousemove", updateMouse);
@@ -120,7 +130,10 @@ const createSketch = (p: P5Instance) => {
   };
 
   // Handle window resize events
-  const windowResized = () => p.resizeCanvas(p.windowWidth, p.windowHeight);
+  const windowResized = () => {
+    p.resizeCanvas(p.windowWidth, p.windowHeight);
+    updateSpawnRate();
+  };
 
   // Spawn a new raindrop at a random position
   const spawnRaindrop = (now: number, scrollY: number) => {
@@ -256,7 +269,7 @@ const createSketch = (p: P5Instance) => {
     const centerX = windowWidth >> 1; // Bit shift for fast division by 2
 
     // Spawn new raindrops at regular intervals
-    if (now - lastSpawnTime >= SPAWN_INTERVAL) {
+    if (now - lastSpawnTime >= spawnInterval) {
       spawnRaindrop(now, scrollY);
     }
 
