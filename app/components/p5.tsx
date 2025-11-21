@@ -97,10 +97,10 @@ const createSketch = (p: P5Instance) => {
   const windowResized = () => p.resizeCanvas(p.windowWidth, p.windowHeight);
 
   // Spawn a new raindrop at a random position
-  const spawnRaindrop = (now: number) => {
+  const spawnRaindrop = (now: number, scrollY: number) => {
     raindrops.push({
       x: p.random(p.windowWidth),
-      y: p.random(p.windowHeight),
+      y: p.random(scrollY, scrollY + p.windowHeight),
       createdAt: now,
       rotation: p.random(p.TWO_PI),
       rotationSpeed: p.random(-0.02, 0.02),
@@ -213,18 +213,18 @@ const createSketch = (p: P5Instance) => {
 
     const now = p.millis();
 
-    // Spawn new raindrops at regular intervals
-    if (now - lastSpawnTime >= SPAWN_INTERVAL) {
-      spawnRaindrop(now);
-    }
-
-    // Remove old raindrops
-    filterExpiredRaindrops(now);
-
     // Calculate scroll offset and cache common values
     const scrollY = window.scrollY * CONFIG.SCROLL_PARALLAX_FACTOR;
     const { windowWidth } = p;
     const centerX = windowWidth >> 1; // Bit shift for fast division by 2
+
+    // Spawn new raindrops at regular intervals
+    if (now - lastSpawnTime >= SPAWN_INTERVAL) {
+      spawnRaindrop(now, scrollY);
+    }
+
+    // Remove old raindrops
+    filterExpiredRaindrops(now);
 
     // Draw connection lines first (behind raindrops)
     drawConnectionLines(scrollY);
