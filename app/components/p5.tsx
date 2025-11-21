@@ -57,16 +57,34 @@ const createSketch = (p: P5Instance) => {
   let interactionX = -1000;
   let interactionY = -1000;
 
+  // Reset interaction coordinates
+  const resetInteraction = () => {
+    interactionX = -1000;
+    interactionY = -1000;
+  };
+
   // Event listeners for manual tracking
   const updateMouse = (e: MouseEvent) => {
     interactionX = e.clientX;
     interactionY = e.clientY;
   };
 
+  const handleMouseOut = (e: MouseEvent) => {
+    if (e.relatedTarget === null) {
+      resetInteraction();
+    }
+  };
+
   const updateTouch = (e: TouchEvent) => {
     if (e.touches.length > 0) {
       interactionX = e.touches[0].clientX;
       interactionY = e.touches[0].clientY;
+    }
+  };
+
+  const handleTouchEnd = (e: TouchEvent) => {
+    if (e.touches.length === 0) {
+      resetInteraction();
     }
   };
 
@@ -80,16 +98,24 @@ const createSketch = (p: P5Instance) => {
 
     // Attach global listeners to track input even when scrolling
     window.addEventListener("mousemove", updateMouse);
+    window.addEventListener("mouseout", handleMouseOut);
+    window.addEventListener("blur", resetInteraction);
     window.addEventListener("touchstart", updateTouch, { passive: true });
     window.addEventListener("touchmove", updateTouch, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd);
+    window.addEventListener("touchcancel", handleTouchEnd);
   };
 
   // Clean up event listeners when sketch is removed
   const originalRemove = p.remove;
   p.remove = () => {
     window.removeEventListener("mousemove", updateMouse);
+    window.removeEventListener("mouseout", handleMouseOut);
+    window.removeEventListener("blur", resetInteraction);
     window.removeEventListener("touchstart", updateTouch);
     window.removeEventListener("touchmove", updateTouch);
+    window.removeEventListener("touchend", handleTouchEnd);
+    window.removeEventListener("touchcancel", handleTouchEnd);
     if (originalRemove) originalRemove.call(p);
   };
 
@@ -99,19 +125,30 @@ const createSketch = (p: P5Instance) => {
   // Spawn a new raindrop at a random position
   const spawnRaindrop = (now: number, scrollY: number) => {
     raindrops.push({
-      x: p.random(p.windowWidth),
-      y: p.random(scrollY, scrollY + p.windowHeight),
+      x: Math.random() * p.windowWidth,
+      y: Math.random() * p.windowHeight + scrollY,
       createdAt: now,
-      rotation: p.random(p.TWO_PI),
-      rotationSpeed: p.random(-0.02, 0.02),
-      size: p.random(CONFIG.MIN_SIZE, CONFIG.MAX_SIZE),
+      rotation: Math.random() * Math.PI * 2,
+      rotationSpeed: (Math.random() - 0.5) * 0.04,
+      size:
+        Math.random() * (CONFIG.MAX_SIZE - CONFIG.MIN_SIZE) + CONFIG.MIN_SIZE,
     });
     lastSpawnTime = now;
   };
 
   // Remove raindrops that have exceeded their lifespan
+  // Optimized to avoid array allocation (GC pressure reduction)
   const filterExpiredRaindrops = (now: number) => {
-    raindrops = raindrops.filter((d) => now - d.createdAt < CONFIG.LIFESPAN);
+    let writeIdx = 0;
+    for (let i = 0; i < raindrops.length; i++) {
+      if (now - raindrops[i].createdAt < CONFIG.LIFESPAN) {
+        if (writeIdx !== i) {
+          raindrops[writeIdx] = raindrops[i];
+        }
+        writeIdx++;
+      }
+    }
+    raindrops.length = writeIdx;
   };
 
   /**
@@ -129,7 +166,7 @@ const createSketch = (p: P5Instance) => {
     const distSq = dx * dx + dy * dy;
 
     if (distSq < MAX_DIST_SQ && distSq > 1) {
-      const dist = p.sqrt(distSq);
+      const dist = Math.sqrt(distSq);
       const repelStrength = 1 - dist / CONFIG.MAX_REPEL_DISTANCE;
       const speed =
         (repelStrength * repelStrength * CONFIG.MAX_REPEL_SPEED) / dist;
@@ -158,6 +195,7 @@ const createSketch = (p: P5Instance) => {
    * Lines fade based on distance between raindrops
    */
   const drawConnectionLines = (scrollY: number) => {
+    p.strokeWeight(CONFIG.CONNECTION_LINE_WEIGHT);
     const len = raindrops.length;
     for (let i = 0; i < len; i++) {
       const drop = raindrops[i];
@@ -177,7 +215,6 @@ const createSketch = (p: P5Instance) => {
             (1 - Math.sqrt(distSq) / CONFIG.CONNECTION_DISTANCE) *
             CONFIG.CONNECTION_MAX_ALPHA;
           p.stroke(...CONFIG.CONNECTION_LINE_COLOR, lineAlpha);
-          p.strokeWeight(CONFIG.CONNECTION_LINE_WEIGHT);
           p.line(dropX, dropYScroll, other.x, other.y - scrollY);
         }
       }
@@ -211,7 +248,7 @@ const createSketch = (p: P5Instance) => {
   const draw = () => {
     p.clear(); // Clear canvas for transparency
 
-    const now = p.millis();
+    const now = performance.now();
 
     // Calculate scroll offset and cache common values
     const scrollY = window.scrollY * CONFIG.SCROLL_PARALLAX_FACTOR;
