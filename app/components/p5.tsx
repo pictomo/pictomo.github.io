@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type RefObject } from "react";
+import { useTheme } from "next-themes";
 import type p5 from "p5";
 import styles from "./p5.module.scss";
 
@@ -18,15 +19,25 @@ const CONFIG = {
   MIN_SIZE: 40, // Minimum size of raindrops
   MAX_SIZE: 120, // Maximum size of raindrops
   INITIAL_ALPHA: 100, // Initial opacity value
-  FILL_COLOR: [128, 128, 128] as const, // RGB color for raindrops
   SCROLL_PARALLAX_FACTOR: 0.5, // Parallax scrolling speed multiplier
   ALPHA_FADE_EXPONENT: 1.5, // Exponent for center distance fade calculation
   CONNECTION_DISTANCE: 256, // Maximum distance to draw connection lines
-  CONNECTION_LINE_COLOR: [128, 128, 128] as const, // RGB color for connection lines
-  CONNECTION_LINE_WEIGHT: 1.5, // Thickness of connection lines
+  CONNECTION_LINE_WEIGHT: 1, // Thickness of connection lines
   CONNECTION_MAX_ALPHA: 80, // Maximum opacity for connection lines
   ROTATION_SPEED_FACTOR: 0.04, // Rotation speed multiplier
   OFF_SCREEN: -1000, // Coordinate value for off-screen interaction
+} as const;
+
+// Theme colors configuration
+const THEME_COLORS = {
+  light: {
+    fillColor: [0, 0, 0] as [number, number, number],
+    connectionColor: [0, 0, 0] as [number, number, number],
+  },
+  dark: {
+    fillColor: [255, 255, 255] as [number, number, number],
+    connectionColor: [255, 255, 255] as [number, number, number],
+  },
 } as const;
 
 // Pre-calculated constants for performance optimization
@@ -43,15 +54,22 @@ interface Raindrop {
   size: number; // Size of the square
 }
 
+interface ColorConfig {
+  fillColor: [number, number, number];
+  connectionColor: [number, number, number];
+}
+
 /**
  * Creates the p5.js sketch with all drawing logic
  * @param container - The DOM element to mount the canvas into
  * @param interactionRef - Reference to shared interaction coordinates
+ * @param configRef - Reference to dynamic configuration (colors)
  */
 const createSketch =
   (
     container: HTMLElement,
-    interactionRef: React.MutableRefObject<{ x: number; y: number }>
+    interactionRef: RefObject<{ x: number; y: number }>,
+    configRef: RefObject<ColorConfig>
   ) =>
   (p: p5) => {
     let raindrops: Raindrop[] = []; // Array of active raindrops
@@ -190,7 +208,7 @@ const createSketch =
             // This is a non-linear fade but faster and visually similar
             const lineAlpha =
               (1 - distSq / CONNECTION_DIST_SQ) * CONFIG.CONNECTION_MAX_ALPHA;
-            p.stroke(...CONFIG.CONNECTION_LINE_COLOR, lineAlpha);
+            p.stroke(...configRef.current.connectionColor, lineAlpha);
             p.line(dropX, dropYScroll, other.x, other.y - scrollY);
           }
         }
@@ -208,7 +226,7 @@ const createSketch =
     ) => {
       const halfSize = drop.size * 0.5; // Calculate half size for centering
       p.noStroke();
-      p.fill(...CONFIG.FILL_COLOR, alpha);
+      p.fill(...configRef.current.fillColor, alpha);
       p.push(); // Save transformation state
       p.translate(drop.x, drop.y - scrollY); // Move to position with parallax
       p.rotate(
@@ -270,11 +288,24 @@ const createSketch =
  * React component that initializes and mounts the p5.js sketch
  */
 const P5 = () => {
+  const { resolvedTheme } = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
   const interactionRef = useRef<{ x: number; y: number }>({
     x: CONFIG.OFF_SCREEN,
     y: CONFIG.OFF_SCREEN,
   });
+
+  // Determine current colors based on theme
+  const currentColors =
+    resolvedTheme === "dark" ? THEME_COLORS.dark : THEME_COLORS.light;
+
+  const configRef = useRef<ColorConfig>(currentColors);
+
+  // Update config ref when theme changes
+  useEffect(() => {
+    configRef.current =
+      resolvedTheme === "dark" ? THEME_COLORS.dark : THEME_COLORS.light;
+  }, [resolvedTheme]);
 
   useEffect(() => {
     // Interaction handlers
@@ -337,7 +368,7 @@ const P5 = () => {
       // Dynamically import p5.js library to avoid SSR issues
       import("p5").then((p5Module) => {
         p5Instance = new p5Module.default(
-          createSketch(containerRef.current!, interactionRef)
+          createSketch(containerRef.current!, interactionRef, configRef)
         );
       });
     }
