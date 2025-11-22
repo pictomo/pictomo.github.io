@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import type p5 from "p5";
 import styles from "./p5.module.scss";
 
 /**
@@ -42,8 +43,6 @@ interface Raindrop {
   size: number; // Size of the square
 }
 
-type P5Instance = any;
-
 /**
  * Creates the p5.js sketch with all drawing logic
  * @param container - The DOM element to mount the canvas into
@@ -54,13 +53,17 @@ const createSketch =
     container: HTMLElement,
     interactionRef: React.MutableRefObject<{ x: number; y: number }>
   ) =>
-  (p: P5Instance) => {
+  (p: p5) => {
     let raindrops: Raindrop[] = []; // Array of active raindrops
     let lastSpawnTime = 0; // Timestamp of last spawn
     let spawnInterval = 0; // Dynamic spawn interval based on area
     let maxRepelSpeed = 0; // Dynamic repel speed based on screen size
     let maxRepelDistance = 0; // Dynamic repel distance based on screen size
     let maxDistSq = 0; // Squared max repel distance
+
+    // Track canvas size to detect changes
+    let cachedWidth = 0;
+    let cachedHeight = 0;
 
     // Calculate spawn rate and repel speed based on viewport area
     const updateScreenValues = () => {
@@ -73,6 +76,10 @@ const createSketch =
       maxRepelSpeed = screenSize * CONFIG.REPEL_SPEED_FACTOR;
       maxRepelDistance = screenSize * CONFIG.REPEL_DISTANCE_FACTOR;
       maxDistSq = maxRepelDistance ** 2;
+
+      // Update cached values
+      cachedWidth = p.width;
+      cachedHeight = p.height;
     };
 
     // Initial setup: create canvas
@@ -87,12 +94,6 @@ const createSketch =
       canvas.style("pointer-events", "none");
 
       // Initialize values
-      updateScreenValues();
-    };
-
-    // Handle container resize events
-    p.containerResized = (w: number, h: number) => {
-      p.resizeCanvas(w, h);
       updateScreenValues();
     };
 
@@ -221,6 +222,11 @@ const createSketch =
      * Main draw loop - executed every frame
      */
     const draw = () => {
+      // Check if canvas size has changed (e.g. via resizeCanvas called externally)
+      if (p.width !== cachedWidth || p.height !== cachedHeight) {
+        updateScreenValues();
+      }
+
       p.clear(); // Clear canvas for transparency
 
       const now = p.millis();
@@ -313,15 +319,15 @@ const P5 = () => {
     window.addEventListener("touchend", handleTouchEnd);
     window.addEventListener("touchcancel", handleTouchEnd);
 
-    let p5Instance: any = null;
+    let p5Instance: p5 | null = null;
 
     // ResizeObserver setup
     const resizeObserver = new ResizeObserver((entries) => {
       for (const entry of entries) {
-        if (p5Instance && p5Instance.containerResized) {
+        if (p5Instance) {
           // Use contentRect for precise content box size
           const { width, height } = entry.contentRect;
-          p5Instance.containerResized(width, height);
+          p5Instance.resizeCanvas(width, height);
         }
       }
     });
