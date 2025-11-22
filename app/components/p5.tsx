@@ -12,8 +12,8 @@ import styles from "./p5.module.scss";
 const CONFIG = {
   LIFESPAN: 12000, // Lifetime of each raindrop in milliseconds
   SPAWN_RATE_RATIO: 20 / (1920 * 1080), // Spawn rate per pixel area (default: 5 drops/sec for 1920x1080)
-  MAX_REPEL_DISTANCE: 1000, // Maximum distance for mouse repel effect
-  MAX_REPEL_SPEED: 3, // Maximum speed of repel movement
+  REPEL_DISTANCE_FACTOR: 1200 / (1920 + 1080), // Repel distance factor relative to screen size (width + height)
+  REPEL_SPEED_FACTOR: 5 / (1920 + 1080), // Repel speed factor relative to screen size (width + height)
   MIN_SIZE: 40, // Minimum size of raindrops
   MAX_SIZE: 120, // Maximum size of raindrops
   INITIAL_ALPHA: 100, // Initial opacity value
@@ -29,7 +29,6 @@ const CONFIG = {
 } as const;
 
 // Pre-calculated constants for performance optimization
-const MAX_DIST_SQ = CONFIG.MAX_REPEL_DISTANCE ** 2; // Squared distance for repel effect
 const CONNECTION_DIST_SQ = CONFIG.CONNECTION_DISTANCE ** 2; // Squared distance for connections
 const LIFESPAN_INV = 1 / CONFIG.LIFESPAN; // Inverse of lifespan for faster calculation
 
@@ -59,12 +58,21 @@ const createSketch =
     let raindrops: Raindrop[] = []; // Array of active raindrops
     let lastSpawnTime = 0; // Timestamp of last spawn
     let spawnInterval = 0; // Dynamic spawn interval based on area
+    let maxRepelSpeed = 0; // Dynamic repel speed based on screen size
+    let maxRepelDistance = 0; // Dynamic repel distance based on screen size
+    let maxDistSq = 0; // Squared max repel distance
 
-    // Calculate spawn rate based on viewport area
-    const updateSpawnRate = () => {
+    // Calculate spawn rate and repel speed based on viewport area
+    const updateScreenValues = () => {
       const area = p.width * p.height;
       const spawnRate = area * CONFIG.SPAWN_RATE_RATIO;
       spawnInterval = 1000 / spawnRate; // Time between spawns in ms
+
+      // Calculate repel values proportional to screen size
+      const screenSize = p.width + p.height;
+      maxRepelSpeed = screenSize * CONFIG.REPEL_SPEED_FACTOR;
+      maxRepelDistance = screenSize * CONFIG.REPEL_DISTANCE_FACTOR;
+      maxDistSq = maxRepelDistance ** 2;
     };
 
     // Initial setup: create canvas
@@ -78,14 +86,14 @@ const createSketch =
       // Allow clicks and scrolls to pass through the canvas
       canvas.style("pointer-events", "none");
 
-      // Initialize spawn rate
-      updateSpawnRate();
+      // Initialize values
+      updateScreenValues();
     };
 
     // Handle container resize events
     p.containerResized = (w: number, h: number) => {
       p.resizeCanvas(w, h);
-      updateSpawnRate();
+      updateScreenValues();
     };
 
     // Spawn a new raindrop at a random position
@@ -131,11 +139,10 @@ const createSketch =
       const dy = drop.y - (mouseY + scrollY);
       const distSq = dx * dx + dy * dy;
 
-      if (distSq < MAX_DIST_SQ && distSq > 1) {
+      if (distSq < maxDistSq && distSq > 1) {
         const dist = Math.sqrt(distSq);
-        const repelStrength = 1 - dist / CONFIG.MAX_REPEL_DISTANCE;
-        const speed =
-          (repelStrength * repelStrength * CONFIG.MAX_REPEL_SPEED) / dist;
+        const repelStrength = 1 - dist / maxRepelDistance;
+        const speed = (repelStrength * repelStrength * maxRepelSpeed) / dist;
         drop.x += dx * speed;
         drop.y += dy * speed;
       }
