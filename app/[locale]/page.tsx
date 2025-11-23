@@ -1,6 +1,6 @@
 import Home from "./home";
 import { i18nLocales, I18nLocale } from "@/app/i18n/config";
-import P5 from "@/app/components/p5";
+import P5Container from "@/app/components/p5-container";
 
 export const dynamicParams = false;
 
@@ -18,7 +18,7 @@ const Page = async ({
   return (
     <>
       <Home locale={resolvedParams.locale} />
-      <P5 />
+      <P5Container />
     </>
   );
 };

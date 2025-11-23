@@ -1,6 +1,7 @@
 import { I18nLocale, t } from "@/app/i18n/config";
 import Link from "next/link";
 import ThemeChanger from "@/app/components/theme-changer";
+import P5Switch from "@/app/components/p5-switch";
 import IconsView from "@/app/components/icons-view";
 
 // import { SiQiita } from "react-icons/si";
@@ -31,6 +32,8 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
       <br />
       <br />
       <ThemeChanger locale={locale} />
+      <br />
+      <P5Switch locale={locale} />
       <div>
         <h2>Profile</h2>
         {t(

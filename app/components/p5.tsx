@@ -54,22 +54,23 @@ interface Raindrop {
   size: number; // Size of the square
 }
 
-interface ColorConfig {
+interface DrawConfig {
   fillColor: [number, number, number];
   connectionColor: [number, number, number];
+  showConnections: boolean;
 }
 
 /**
  * Creates the p5.js sketch with all drawing logic
  * @param container - The DOM element to mount the canvas into
  * @param interactionRef - Reference to shared interaction coordinates
- * @param configRef - Reference to dynamic configuration (colors)
+ * @param configRef - Reference to dynamic configuration (colors and flags)
  */
 const createSketch =
   (
     container: HTMLElement,
     interactionRef: RefObject<{ x: number; y: number }>,
-    configRef: RefObject<ColorConfig>
+    configRef: RefObject<DrawConfig>
   ) =>
   (p: p5) => {
     let raindrops: Raindrop[] = []; // Array of active raindrops
@@ -269,7 +270,9 @@ const createSketch =
       }
 
       // Draw connection lines first (behind raindrops)
-      drawConnectionLines(scrollY);
+      if (configRef.current.showConnections) {
+        drawConnectionLines(scrollY);
+      }
 
       // Draw each raindrop (Render phase)
       const len = raindrops.length;
@@ -287,7 +290,7 @@ const createSketch =
 /**
  * React component that initializes and mounts the p5.js sketch
  */
-const P5 = () => {
+const P5 = ({ showConnections = true }: { showConnections?: boolean }) => {
   const { resolvedTheme } = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
   const interactionRef = useRef<{ x: number; y: number }>({
@@ -299,13 +302,20 @@ const P5 = () => {
   const currentColors =
     resolvedTheme === "dark" ? THEME_COLORS.dark : THEME_COLORS.light;
 
-  const configRef = useRef<ColorConfig>(currentColors);
+  const configRef = useRef<DrawConfig>({
+    ...currentColors,
+    showConnections,
+  });
 
-  // Update config ref when theme changes
+  // Update config ref when theme or showConnections changes
   useEffect(() => {
-    configRef.current =
+    const colors =
       resolvedTheme === "dark" ? THEME_COLORS.dark : THEME_COLORS.light;
-  }, [resolvedTheme]);
+    configRef.current = {
+      ...colors,
+      showConnections,
+    };
+  }, [resolvedTheme, showConnections]);
 
   useEffect(() => {
     // Interaction handlers
