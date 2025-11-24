@@ -1,0 +1,47 @@
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.text {
+  // 初期状態: 非表示
+  visibility: hidden;
+  opacity: 0;
+
+  // 配置
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  // スタイリング
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-primary);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  white-space: pre-line;
+  min-width: max-content;
+  max-width: 90vw;
+  z-index: 1000;
+
+  // アニメーション
+  transition: opacity 0.3s ease;
+
+  // 吹き出しの三角形
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid;
+    border-color: var(--border-primary) transparent transparent;
+  }
+}
+
+// ホバー時: 表示
+.container:hover .text {
+  visibility: visible;
+  opacity: 1;
+}

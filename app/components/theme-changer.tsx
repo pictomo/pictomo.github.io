@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes";
 import { I18nLocale, t } from "@/app/i18n/config";
 import linkStyles from "@/app/styles/link.module.scss";
-import ThemeContainer from "./theme-container";
+import MountContainer from "./mount-container";
 
 const ThemeChanger = ({ locale }: { locale: I18nLocale }) => {
   const { theme, setTheme, resolvedTheme } = useTheme();
@@ -14,7 +14,7 @@ const ThemeChanger = ({ locale }: { locale: I18nLocale }) => {
         className={linkStyles.link}
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       >
-        <ThemeContainer
+        <MountContainer
           defaultContent={t(
             {
               ja: "カラーモード",
@@ -30,7 +30,7 @@ const ThemeChanger = ({ locale }: { locale: I18nLocale }) => {
             },
             locale
           )}
-        </ThemeContainer>
+        </MountContainer>
       </span>
     </div>
   );

@@ -1,5 +1,5 @@
 /**
- * Cover UI that depends on theme or resolvedTheme.
+ * Cover UI that depends on, e.g. theme and resolvedTheme, p5.
  * Due to prevent Hydration Error.
  * This causes a brief white flash on load, but necessary.
  */
@@ -8,7 +8,7 @@
 
 import { useEffect, useState } from "react";
 
-const ThemeContainer = ({
+const MountContainer = ({
   children,
   defaultContent,
 }: {
@@ -24,4 +24,4 @@ const ThemeContainer = ({
   return mounted ? <>{children}</> : defaultContent || null;
 };
 
-export default ThemeContainer;
+export default MountContainer;
