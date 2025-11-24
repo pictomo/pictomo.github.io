@@ -35,8 +35,8 @@ const P5Switch = ({ locale }: { locale: I18nLocale }) => {
         <span className={tooltipStyles.text}>
           {t(
             {
-              ja: "パフォーマンスに影響します。\n動作が重い場合はオフにしてください。",
-              en: "It affects performance.\nPlease turn it off if it's slow.",
+              ja: "試験運用中の機能",
+              en: "Experimental feature",
             },
             locale
           )}

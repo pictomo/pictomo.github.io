@@ -13,7 +13,7 @@ import styles from "./p5.module.scss";
 // Configuration constants
 const CONFIG = {
   LIFESPAN: 12000, // Lifetime of each raindrop in milliseconds
-  SPAWN_RATE_RATIO: 20 / (1920 * 1080), // Spawn rate per pixel area (default: 5 drops/sec for 1920x1080)
+  SPAWN_RATE_RATIO: 10 / (1920 * 1080), // Spawn rate per pixel area (default: 5 drops/sec for 1920x1080)
   REPEL_DISTANCE_FACTOR: 1200 / (1920 + 1080), // Repel distance factor relative to screen size (width + height)
   REPEL_SPEED_FACTOR: 5 / (1920 + 1080), // Repel speed factor relative to screen size (width + height)
   MIN_SIZE: 40, // Minimum size of raindrops
