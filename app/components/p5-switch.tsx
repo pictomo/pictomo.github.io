@@ -2,8 +2,10 @@
 
 import { useP5Store } from "./p5-container";
 import { I18nLocale, t } from "@/app/i18n/config";
+import { FiInfo } from "react-icons/fi";
 import linkStyles from "@/app/styles/link.module.scss";
-import MountContainer from "./mount-container";
+import iconStyles from "@/app/styles/icon.module.scss";
+import tooltipStyles from "@/app/styles/tooltip.module.scss";
 
 const P5Switch = ({ locale }: { locale: I18nLocale }) => {
   const { showP5, showConnections, setShowP5, setShowConnections } =
@@ -26,14 +28,19 @@ const P5Switch = ({ locale }: { locale: I18nLocale }) => {
   return (
     <div>
       <span className={linkStyles.link} onClick={toggleMode}>
-        <MountContainer
-          defaultContent={t(
-            { ja: "背景モード", en: "Background Mode" },
+        {t({ ja: "背景モード", en: "Background Mode" }, locale)}
+      </span>
+      <span className={tooltipStyles.container}>
+        <FiInfo className={`${iconStyles.adjust} ${iconStyles.leftMargin}`} />
+        <span className={tooltipStyles.text}>
+          {t(
+            {
+              ja: "パフォーマンスに影響します。\n動作が重い場合はオフにしてください。",
+              en: "It affects performance.\nPlease turn it off if it's slow.",
+            },
             locale
           )}
-        >
-          {t({ ja: "背景モード", en: "Background Mode" }, locale)}
-        </MountContainer>
+        </span>
       </span>
     </div>
   );

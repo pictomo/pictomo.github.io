@@ -196,7 +196,9 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           href="https://github.com/pictomo"
           target="_blank"
         >
-          <FaGithub className={`${IconStyle.adjust} ${IconStyle.leftMargin}`} />
+          <FaGithub
+            className={`${IconStyle.adjust} ${IconStyle.rightMargin}`}
+          />
           GitHub
         </a>
         <br />
@@ -206,7 +208,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           target="_blank"
         >
           <FaInstagram
-            className={`${IconStyle.adjust} ${IconStyle.leftMargin}`}
+            className={`${IconStyle.adjust} ${IconStyle.rightMargin}`}
           />
           Instagram
         </a>
@@ -217,7 +219,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           target="_blank"
         >
           <FaFacebook
-            className={`${IconStyle.adjust} ${IconStyle.leftMargin}`}
+            className={`${IconStyle.adjust} ${IconStyle.rightMargin}`}
           />
           Facebook
         </a>
@@ -228,7 +230,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           target="_blank"
         >
           <FaXTwitter
-            className={`${IconStyle.adjust} ${IconStyle.leftMargin}`}
+            className={`${IconStyle.adjust} ${IconStyle.rightMargin}`}
           />
         </a>
         <br />
@@ -246,7 +248,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           href="https://unityroom.com/users/jhm09bwdtxc18rlenf73"
           target="_blank"
         >
-          <FaUnity className={`${IconStyle.adjust} ${IconStyle.leftMargin}`} />
+          <FaUnity className={`${IconStyle.adjust} ${IconStyle.rightMargin}`} />
           unityroom
         </a>
         <br />
@@ -256,7 +258,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           target="_blank"
         >
           <BsBookFill
-            className={`${IconStyle.adjust} ${IconStyle.leftMargin}`}
+            className={`${IconStyle.adjust} ${IconStyle.rightMargin}`}
           />
           {t({ ja: "ブクログ", en: "Booklog" }, locale)}
         </a>
@@ -267,7 +269,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           target="_blank"
         >
           <SiBookmeter
-            className={`${IconStyle.adjust} ${IconStyle.leftMargin}`}
+            className={`${IconStyle.adjust} ${IconStyle.rightMargin}`}
           />
           {t({ ja: "読書メーター", en: "bookmeter" }, locale)}
         </a>
@@ -280,7 +282,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           target="_blank"
         >
           <SiKeybase
-            className={`${IconStyle.adjust} ${IconStyle.leftMargin}`}
+            className={`${IconStyle.adjust} ${IconStyle.rightMargin}`}
           />
           Keybase
         </a>
@@ -292,7 +294,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           rel="noopener noreferrer"
         >
           <AiFillSignature
-            className={`${IconStyle.adjust} ${IconStyle.leftMargin}`}
+            className={`${IconStyle.adjust} ${IconStyle.rightMargin}`}
           />
           {t(
             {
@@ -309,7 +311,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           target="_blank"
         >
           <FaLinkedin
-            className={`${IconStyle.adjust} ${IconStyle.leftMargin}`}
+            className={`${IconStyle.adjust} ${IconStyle.rightMargin}`}
           />
           {t(
             {

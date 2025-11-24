@@ -5,12 +5,14 @@
   --background-primary: #e2e2e2;
   --text-primary: #303030;
   --text-unfocus: #676767;
+  --border-primary: #303030;
 }
 
 :root[data-theme="dark"] {
   --background-primary: #303030;
   --text-primary: #e2e2e2;
   --text-unfocus: #a5a5a5;
+  --border-primary: #e2e2e2;
 }
 
 body {
