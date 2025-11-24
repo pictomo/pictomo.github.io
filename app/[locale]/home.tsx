@@ -236,7 +236,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
         <br />
         <a
           className={`${LinkStyle.link} ${LinkStyle.noUnderline}`}
-          href="https://qiita.com/pictomo_m"
+          href="https://qiita.com/pictomo"
           target="_blank"
         >
           {/* <SiQiita /> */}
