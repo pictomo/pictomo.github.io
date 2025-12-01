@@ -35,8 +35,8 @@ const P5Switch = ({ locale }: { locale: I18nLocale }) => {
         <span className={tooltipStyles.text}>
           {t(
             {
-              ja: "試験運用中の機能",
-              en: "Experimental feature",
+              ja: "試験運用中の機能\n不具合のある場合はoffにしてください",
+              en: "Experimental feature\nPlease turn it off if there are any issues",
             },
             locale
           )}

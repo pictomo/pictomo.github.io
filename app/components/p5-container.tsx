@@ -10,8 +10,8 @@ export const useP5Store = create<{
   setShowP5: (show: boolean) => void;
   setShowConnections: (show: boolean) => void;
 }>((set) => ({
-  showP5: false,
-  showConnections: false,
+  showP5: true,
+  showConnections: true,
   setShowP5: (show) => set({ showP5: show }),
   setShowConnections: (show) => set({ showConnections: show }),
 }));
