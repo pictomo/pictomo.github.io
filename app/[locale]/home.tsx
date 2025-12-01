@@ -323,6 +323,45 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
         </a>
       </div>
       <br />
+      <div>
+        <h2>Contacts</h2>
+        {t(
+          {
+            ja: (
+              <p>
+                スパム対策のため、メールアドレスは公開しておりません。
+                <br />
+                お初のご連絡は&nbsp;
+                <a
+                  className={LinkStyle.link}
+                  href="https://www.facebook.com/MPictomo"
+                  target="_blank"
+                >
+                  Facebook Messenger
+                </a>
+                &nbsp;より承ります。
+              </p>
+            ),
+            en: (
+              <p>
+                To prevent spam, email addresses are not disclosed.
+                <br />
+                For first-time contact, please reach out via&nbsp;
+                <a
+                  className={LinkStyle.link}
+                  href="https://www.facebook.com/MPictomo"
+                  target="_blank"
+                >
+                  Facebook Messenger
+                </a>
+                .
+              </p>
+            ),
+          },
+          locale
+        )}
+      </div>
+      <br />
       <p>
         <FaRegCopyright className={IconStyle.adjust} /> 2024-
         {new Date().getFullYear()} pictomo
