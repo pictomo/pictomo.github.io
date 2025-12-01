@@ -34,6 +34,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
       <ThemeChanger locale={locale} />
       <br />
       <P5Switch locale={locale} />
+      <br />
       <div>
         <h2>Profile</h2>
         {t(
@@ -62,6 +63,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           locale
         )}
       </div>
+      <br />
       <div>
         <h2>History</h2>
         {t(
@@ -89,6 +91,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           locale
         )}
       </div>
+      <br />
       <div>
         <h2>Affiliation</h2>
         <p>
@@ -189,6 +192,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           {t({ ja: "メンター", en: "Mentor" }, locale)}
         </p>
       </div>
+      <br />
       <div>
         <h2>Links</h2>
         <a
@@ -274,6 +278,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           {t({ ja: "読書メーター", en: "bookmeter" }, locale)}
         </a>
       </div>
+      <br />
       <div>
         <h2>Authenticity</h2>
         <a
