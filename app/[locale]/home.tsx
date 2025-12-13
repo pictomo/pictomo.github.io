@@ -19,6 +19,7 @@ import { AiFillSignature } from "react-icons/ai";
 import LinkStyle from "@/app/styles/link.module.scss";
 import QiitaLogoStyle from "@/app/styles/qiita-logo.module.scss";
 import IconStyle from "@/app/styles/icon.module.scss";
+import P5 from "../components/p5-wrapper";
 
 const Home = ({ locale }: { locale: I18nLocale }) => {
   return (
@@ -35,6 +36,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
       <br />
       <P5Switch locale={locale} />
       <br />
+      <P5 />
       <div>
         <h2>Profile</h2>
         {t(
