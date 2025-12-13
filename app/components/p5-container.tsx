@@ -26,9 +26,8 @@ const P5Container = () => {
   }
 
   // showP5 が true なら P5 を表示
-  // showConnections を props で渡す)
-  // return <P5 showConnections={showConnections} />;
-  return <P5 />;
+  // showConnections を props で渡す
+  return <P5 showConnections={showConnections} />;
 };
 
 export default P5Container;
