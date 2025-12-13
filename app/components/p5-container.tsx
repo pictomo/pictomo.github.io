@@ -1,7 +1,8 @@
 "use client";
 
 import { create } from "zustand";
-import P5 from "./p5";
+// import P5 from "./p5";
+import P5 from "./p5-wrapper";
 
 // Zustand Store の定義
 export const useP5Store = create<{
@@ -26,7 +27,8 @@ const P5Container = () => {
 
   // showP5 が true なら P5 を表示
   // showConnections を props で渡す)
-  return <P5 showConnections={showConnections} />;
+  // return <P5 showConnections={showConnections} />;
+  return <P5 />;
 };
 
 export default P5Container;
