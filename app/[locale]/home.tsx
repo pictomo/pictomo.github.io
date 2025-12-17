@@ -19,6 +19,7 @@ import { AiFillSignature } from "react-icons/ai";
 import LinkStyle from "@/app/styles/link.module.scss";
 import QiitaLogoStyle from "@/app/styles/qiita-logo.module.scss";
 import IconStyle from "@/app/styles/icon.module.scss";
+import SpaceStyle from "@/app/styles/space.module.scss";
 
 const Home = ({ locale }: { locale: I18nLocale }) => {
   return (
@@ -93,7 +94,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
       </div>
       <br />
       <div>
-        <h2>Affiliation</h2>
+        <h2>Affiliations</h2>
         <p>
           <a
             className={LinkStyle.link}
@@ -130,9 +131,11 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               locale
             )}
           </a>
-          &nbsp;
-          {t({ ja: "修士1年生", en: "Master's 1st year" }, locale)}
           <br />
+          {t({ ja: "修士1年生", en: "Master's 1st year" }, locale)}
+          &nbsp; 2025/4~
+          <br />
+          <span className={SpaceStyle.harf} />
           <a
             className={LinkStyle.link}
             href="https://www.tsukuba.ac.jp"
@@ -155,6 +158,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
             )}
           </a>
           <br />
+          <span className={SpaceStyle.harf} />
           <a
             className={LinkStyle.link}
             href="https://zerofield.biz"
@@ -162,12 +166,14 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           >
             {t({ ja: "株式会社ゼロフィールド", en: "ZEROFIELD, Inc." }, locale)}
           </a>
-          &nbsp;
+          <br />
           {t(
-            { ja: "インターン (休暇中)", en: "Internship (on leave)" },
+            { ja: "(休暇中) インターン", en: "(on leave) Internship" },
             locale
           )}
+          &nbsp; 2023/9~
           <br />
+          <span className={SpaceStyle.harf} />
           <a
             className={LinkStyle.link}
             href="https://www.skygroup.jp"
@@ -175,9 +181,11 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           >
             {t({ ja: "Ｓｋｙ株式会社", en: "Sky Co., LTD." }, locale)}
           </a>
-          &nbsp;
-          {t({ ja: "インターン", en: "Internship" }, locale)}
           <br />
+          {t({ ja: "インターン", en: "Internship" }, locale)}
+          &nbsp; 2025/6~
+          <br />
+          <span className={SpaceStyle.harf} />
           <a
             className={LinkStyle.link}
             href="https://lifeistech.co.jp"
@@ -188,9 +196,73 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               locale
             )}
           </a>
-          &nbsp;
+          <br />
           {t({ ja: "メンター", en: "Mentor" }, locale)}
+          &nbsp; 2023/7~
         </p>
+        <h3>Past Affiliations</h3>
+        <a
+          className={LinkStyle.link}
+          href="https://www.tsukuba.ac.jp"
+          target="_blank"
+        >
+          {t({ ja: "筑波大学", en: "University of Tsukuba," }, locale)}
+        </a>
+        &nbsp;
+        <a
+          className={LinkStyle.link}
+          href="https://www.chs.tsukuba.ac.jp"
+          target="_blank"
+        >
+          {t(
+            {
+              ja: "情報学群",
+              en: "Graduate School of Comprehensive Human Sciences,",
+            },
+            locale
+          )}
+        </a>
+        &nbsp;
+        <a
+          className={LinkStyle.link}
+          href="https://informatics.tsukuba.ac.jp"
+          target="_blank"
+        >
+          {t(
+            {
+              ja: "情報メディア創成学類",
+              en: "Master's and Doctoral Programs in Informatics,",
+            },
+            locale
+          )}
+        </a>
+        <br />
+        &nbsp; 2017/4~2020/3
+        <br />
+        <span className={SpaceStyle.harf} />
+        <a
+          className={LinkStyle.link}
+          href="https://kaichigakuen.ed.jp"
+          target="_blank"
+        >
+          {t({ ja: "開智学園", en: "Kaichi Gakuen" }, locale)}
+        </a>
+        &nbsp;
+        <a
+          className={LinkStyle.link}
+          href="https://koutoubu.kaichigakuen.ed.jp"
+          target="_blank"
+        >
+          {t(
+            {
+              ja: "開智高等学校 [高等部]",
+              en: "Kaichi High School",
+            },
+            locale
+          )}
+        </a>
+        <br />
+        &nbsp; 2021/4~2025/3
       </div>
       <br />
       <div>
