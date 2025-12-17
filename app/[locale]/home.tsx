@@ -20,6 +20,45 @@ import LinkStyle from "@/app/styles/link.module.scss";
 import QiitaLogoStyle from "@/app/styles/qiita-logo.module.scss";
 import IconStyle from "@/app/styles/icon.module.scss";
 import SpaceStyle from "@/app/styles/space.module.scss";
+import { ReactNode, Fragment } from "react";
+
+const Affiliation = ({
+  main,
+  sub,
+}: {
+  main:
+    | { name: string | ReactNode; link: string }
+    | { name: string | ReactNode; link: string }[];
+  sub?: string | ReactNode;
+}) => {
+  return (
+    <span>
+      {Array.isArray(main) ? (
+        main.map((item, index) => (
+          <Fragment key={index}>
+            <a className={LinkStyle.link} href={item.link} target="_blank">
+              {item.name}
+            </a>
+            &nbsp;
+          </Fragment>
+        ))
+      ) : (
+        <Fragment key={0}>
+          <a className={LinkStyle.link} href={main.link} target="_blank">
+            {main.name}
+          </a>
+          &nbsp;
+        </Fragment>
+      )}
+      {sub && (
+        <>
+          <br />
+          {sub}
+        </>
+      )}
+    </span>
+  );
+};
 
 const Home = ({ locale }: { locale: I18nLocale }) => {
   return (
@@ -96,173 +135,163 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
       <div>
         <h2>Affiliations</h2>
         <p>
-          <a
-            className={LinkStyle.link}
-            href="https://www.tsukuba.ac.jp"
-            target="_blank"
-          >
-            {t({ ja: "筑波大学", en: "University of Tsukuba," }, locale)}
-          </a>
-          &nbsp;
-          <a
-            className={LinkStyle.link}
-            href="https://www.chs.tsukuba.ac.jp"
-            target="_blank"
-          >
-            {t(
+          <Affiliation
+            main={[
               {
-                ja: "人間総合科学学術院",
-                en: "Graduate School of Comprehensive Human Sciences,",
+                name: t(
+                  { ja: "筑波大学", en: "University of Tsukuba," },
+                  locale
+                ),
+                link: "https://www.tsukuba.ac.jp",
+              },
+              {
+                name: t(
+                  {
+                    ja: "人間総合科学学術院",
+                    en: "Graduate School of Comprehensive Human Sciences,",
+                  },
+                  locale
+                ),
+                link: "https://www.chs.tsukuba.ac.jp",
+              },
+              {
+                name: t(
+                  {
+                    ja: "人間総合科学研究群 情報学学位プログラム",
+                    en: "Master's and Doctoral Programs in INFORMATICS",
+                  },
+                  locale
+                ),
+                link: "https://informatics.tsukuba.ac.jp",
+              },
+            ]}
+            sub={t(
+              { ja: "修士1年生 2025/4~", en: "Master's 1st year 2025/4~" },
+              locale
+            )}
+          />
+          <br />
+          <span className={SpaceStyle.harf} />
+          <Affiliation
+            main={[
+              {
+                name: t(
+                  { ja: "筑波大学", en: "University of Tsukuba," },
+                  locale
+                ),
+                link: "https://www.tsukuba.ac.jp",
+              },
+              {
+                name: t(
+                  {
+                    ja: "融合知能デザイン研究室",
+                    en: "FusionCompLab",
+                  },
+                  locale
+                ),
+                link: "https://fusioncomplab.org",
+              },
+            ]}
+          />
+          <br />
+          <span className={SpaceStyle.harf} />
+          <Affiliation
+            main={{
+              name: t(
+                { ja: "株式会社ゼロフィールド", en: "ZEROFIELD, Inc." },
+                locale
+              ),
+              link: "https://zerofield.biz",
+            }}
+            sub={t(
+              {
+                ja: "(休暇中)インターン 2023/9~",
+                en: "(on leave)Internship 2023/9~",
               },
               locale
             )}
-          </a>
-          &nbsp;
-          <a
-            className={LinkStyle.link}
-            href="https://informatics.tsukuba.ac.jp"
-            target="_blank"
-          >
-            {t(
-              {
-                ja: "人間総合科学研究群 情報学学位プログラム",
-                en: "Master's and Doctoral Programs in Informatics,",
-              },
+          />
+          <br />
+          <span className={SpaceStyle.harf} />
+          <Affiliation
+            main={{
+              name: t({ ja: "Ｓｋｙ株式会社", en: "Sky Co., LTD." }, locale),
+              link: "https://www.skygroup.jp",
+            }}
+            sub={t(
+              { ja: "インターン 2025/6~", en: "Internship 2025/6~" },
               locale
             )}
-          </a>
-          <br />
-          {t({ ja: "修士1年生", en: "Master's 1st year" }, locale)}
-          &nbsp; 2025/4~
+          />
           <br />
           <span className={SpaceStyle.harf} />
-          <a
-            className={LinkStyle.link}
-            href="https://www.tsukuba.ac.jp"
-            target="_blank"
-          >
-            {t({ ja: "筑波大学", en: "University of Tsukuba," }, locale)}
-          </a>
-          &nbsp;
-          <a
-            className={LinkStyle.link}
-            href="https://fusioncomplab.org"
-            target="_blank"
-          >
-            {t(
-              {
-                ja: "融合知能デザイン研究室",
-                en: "FusionCompLab",
-              },
-              locale
-            )}
-          </a>
-          <br />
-          <span className={SpaceStyle.harf} />
-          <a
-            className={LinkStyle.link}
-            href="https://zerofield.biz"
-            target="_blank"
-          >
-            {t({ ja: "株式会社ゼロフィールド", en: "ZEROFIELD, Inc." }, locale)}
-          </a>
-          <br />
-          {t(
-            { ja: "(休暇中) インターン", en: "(on leave) Internship" },
-            locale
-          )}
-          &nbsp; 2023/9~
-          <br />
-          <span className={SpaceStyle.harf} />
-          <a
-            className={LinkStyle.link}
-            href="https://www.skygroup.jp"
-            target="_blank"
-          >
-            {t({ ja: "Ｓｋｙ株式会社", en: "Sky Co., LTD." }, locale)}
-          </a>
-          <br />
-          {t({ ja: "インターン", en: "Internship" }, locale)}
-          &nbsp; 2025/6~
-          <br />
-          <span className={SpaceStyle.harf} />
-          <a
-            className={LinkStyle.link}
-            href="https://lifeistech.co.jp"
-            target="_blank"
-          >
-            {t(
-              { ja: "ライフイズテック株式会社", en: "Life is Tech, Inc." },
-              locale
-            )}
-          </a>
-          <br />
-          {t({ ja: "メンター", en: "Mentor" }, locale)}
-          &nbsp; 2023/7~
+          <Affiliation
+            main={{
+              name: t(
+                { ja: "ライフイズテック株式会社", en: "Life is Tech, Inc." },
+                locale
+              ),
+              link: "https://lifeistech.co.jp",
+            }}
+            sub={t({ ja: "メンター 2023/7~", en: "Mentor 2023/7~" }, locale)}
+          />
         </p>
         <h3>Past Affiliations</h3>
-        <a
-          className={LinkStyle.link}
-          href="https://www.tsukuba.ac.jp"
-          target="_blank"
-        >
-          {t({ ja: "筑波大学", en: "University of Tsukuba," }, locale)}
-        </a>
-        &nbsp;
-        <a
-          className={LinkStyle.link}
-          href="https://www.chs.tsukuba.ac.jp"
-          target="_blank"
-        >
-          {t(
-            {
-              ja: "情報学群",
-              en: "Graduate School of Comprehensive Human Sciences,",
-            },
-            locale
-          )}
-        </a>
-        &nbsp;
-        <a
-          className={LinkStyle.link}
-          href="https://informatics.tsukuba.ac.jp"
-          target="_blank"
-        >
-          {t(
-            {
-              ja: "情報メディア創成学類",
-              en: "Master's and Doctoral Programs in Informatics,",
-            },
-            locale
-          )}
-        </a>
-        <br />
-        &nbsp; 2017/4~2020/3
-        <br />
-        <span className={SpaceStyle.harf} />
-        <a
-          className={LinkStyle.link}
-          href="https://kaichigakuen.ed.jp"
-          target="_blank"
-        >
-          {t({ ja: "開智学園", en: "Kaichi Gakuen" }, locale)}
-        </a>
-        &nbsp;
-        <a
-          className={LinkStyle.link}
-          href="https://koutoubu.kaichigakuen.ed.jp"
-          target="_blank"
-        >
-          {t(
-            {
-              ja: "開智高等学校 [高等部]",
-              en: "Kaichi High School",
-            },
-            locale
-          )}
-        </a>
-        <br />
-        &nbsp; 2021/4~2025/3
+        <p>
+          <Affiliation
+            main={[
+              {
+                name: t(
+                  { ja: "筑波大学", en: "University of Tsukuba," },
+                  locale
+                ),
+                link: "https://www.tsukuba.ac.jp",
+              },
+              {
+                name: t(
+                  {
+                    ja: "情報学群",
+                    en: "School Of Informatics,",
+                  },
+                  locale
+                ),
+                link: "https://inf.tsukuba.ac.jp",
+              },
+              {
+                name: t(
+                  {
+                    ja: "情報メディア創成学類",
+                    en: "College of Media Arts, Science and Technology",
+                  },
+                  locale
+                ),
+                link: "https://www.mast.tsukuba.ac.jp",
+              },
+            ]}
+            sub="2021/4~2025/3"
+          />
+          <br />
+          <span className={SpaceStyle.harf} />
+          <Affiliation
+            main={[
+              {
+                name: t({ ja: "開智学園", en: "Kaichi Gakuen" }, locale),
+                link: "https://kaichigakuen.ed.jp",
+              },
+              {
+                name: t(
+                  {
+                    ja: "開智高等学校 [高等部]",
+                    en: "Kaichi High School",
+                  },
+                  locale
+                ),
+                link: "https://koutoubu.kaichigakuen.ed.jp",
+              },
+            ]}
+            sub="2017/4~2020/3"
+          />
+        </p>
       </div>
       <br />
       <div>
