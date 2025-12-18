@@ -43,12 +43,12 @@ const Affiliation = ({
           </Fragment>
         ))
       ) : (
-        <Fragment key={0}>
+        <>
           <a className={LinkStyle.link} href={main.link} target="_blank">
             {main.name}
           </a>
           &nbsp;
-        </Fragment>
+        </>
       )}
       {sub && (
         <>
@@ -192,6 +192,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
                 link: "https://fusioncomplab.org",
               },
             ]}
+            sub="2024/4~"
           />
           <br />
           <span className={SpaceStyle.harf} />
@@ -411,6 +412,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           )}
         </a>
         <br />
+        <span className={SpaceStyle.harf} />
         <a
           className={LinkStyle.link}
           href="https://www.linkedin.com/in/pictomo"
