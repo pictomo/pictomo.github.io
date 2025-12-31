@@ -198,24 +198,6 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           <span className={SpaceStyle.harf} />
           <Affiliation
             main={{
-              name: t(
-                { ja: "株式会社ゼロフィールド", en: "ZEROFIELD, Inc." },
-                locale
-              ),
-              link: "https://zerofield.biz",
-            }}
-            sub={t(
-              {
-                ja: "(休暇中)インターン 2023/9~",
-                en: "(on leave)Internship 2023/9~",
-              },
-              locale
-            )}
-          />
-          <br />
-          <span className={SpaceStyle.harf} />
-          <Affiliation
-            main={{
               name: t({ ja: "Ｓｋｙ株式会社", en: "Sky Co., LTD." }, locale),
               link: "https://www.skygroup.jp",
             }}
@@ -239,6 +221,24 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
         </p>
         <h3>Past Affiliations</h3>
         <p>
+          <Affiliation
+            main={{
+              name: t(
+                { ja: "株式会社ゼロフィールド", en: "ZEROFIELD, Inc." },
+                locale
+              ),
+              link: "https://zerofield.biz",
+            }}
+            sub={t(
+              {
+                ja: "インターン 2023/9~2025/12",
+                en: "Internship 2023/9~2025/12",
+              },
+              locale
+            )}
+          />
+          <br />
+          <span className={SpaceStyle.harf} />
           <Affiliation
             main={[
               {
