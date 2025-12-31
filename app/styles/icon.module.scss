@@ -1,9 +1,14 @@
 .adjust {
   vertical-align: middle; /* アイコンをテキストの中央に合わせる */
 }
+
 .rightMargin {
   margin-right: 3px; /* アイコンとテキストの間にスペースを追加 */
 }
 .leftMargin {
   margin-left: 3px; /* アイコンとテキストの間にスペースを追加 */
+}
+
+.invisible {
+  visibility: hidden; /* アイコンを見えなくするが、スペースは保持 */
 }

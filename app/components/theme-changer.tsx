@@ -63,6 +63,9 @@ const ThemeChanger = ({ locale }: { locale: I18nLocale }) => {
             },
             locale
           )}
+          <MdLightMode
+            className={`${IconStyle.adjust} ${IconStyle.leftMargin} ${IconStyle.invisible}`}
+          />
         </MountContainer>
       </span>
     </div>
