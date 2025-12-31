@@ -2,7 +2,10 @@
 
 import { useTheme } from "next-themes";
 import { I18nLocale, t } from "@/app/i18n/config";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
+
 import linkStyles from "@/app/styles/link.module.scss";
+import IconStyle from "@/app/styles/icon.module.scss";
 import MountContainer from "./mount-container";
 
 const ThemeChanger = ({ locale }: { locale: I18nLocale }) => {
@@ -25,8 +28,38 @@ const ThemeChanger = ({ locale }: { locale: I18nLocale }) => {
         >
           {t(
             {
-              ja: resolvedTheme === "dark" ? "ライトモード" : "ダークモード",
-              en: resolvedTheme === "dark" ? "Light Mode" : "Dark Mode",
+              ja:
+                resolvedTheme === "dark" ? (
+                  <>
+                    <MdLightMode
+                      className={`${IconStyle.adjust} ${IconStyle.rightMargin}`}
+                    />
+                    ライトモード
+                  </>
+                ) : (
+                  <>
+                    <MdDarkMode
+                      className={`${IconStyle.adjust} ${IconStyle.rightMargin}`}
+                    />
+                    ダークモード
+                  </>
+                ),
+              en:
+                resolvedTheme === "dark" ? (
+                  <>
+                    <MdLightMode
+                      className={`${IconStyle.adjust} ${IconStyle.rightMargin}`}
+                    />
+                    Light Mode
+                  </>
+                ) : (
+                  <>
+                    <MdDarkMode
+                      className={`${IconStyle.adjust} ${IconStyle.rightMargin}`}
+                    />
+                    Dark Mode
+                  </>
+                ),
             },
             locale
           )}
