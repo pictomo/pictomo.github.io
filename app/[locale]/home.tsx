@@ -100,7 +100,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               </p>
             ),
           },
-          locale
+          locale,
         )}
       </div>
       <br />
@@ -128,7 +128,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               </p>
             ),
           },
-          locale
+          locale,
         )}
       </div>
       <br />
@@ -140,7 +140,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               {
                 name: t(
                   { ja: "筑波大学", en: "University of Tsukuba," },
-                  locale
+                  locale,
                 ),
                 link: "https://www.tsukuba.ac.jp",
               },
@@ -150,7 +150,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
                     ja: "人間総合科学学術院",
                     en: "Graduate School of Comprehensive Human Sciences,",
                   },
-                  locale
+                  locale,
                 ),
                 link: "https://www.chs.tsukuba.ac.jp",
               },
@@ -160,14 +160,14 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
                     ja: "人間総合科学研究群 情報学学位プログラム",
                     en: "Master's and Doctoral Programs in INFORMATICS",
                   },
-                  locale
+                  locale,
                 ),
                 link: "https://informatics.tsukuba.ac.jp",
               },
             ]}
             sub={t(
               { ja: "修士1年生 2025/4~", en: "Master's 1st year 2025/4~" },
-              locale
+              locale,
             )}
           />
           <br />
@@ -177,7 +177,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               {
                 name: t(
                   { ja: "筑波大学", en: "University of Tsukuba," },
-                  locale
+                  locale,
                 ),
                 link: "https://www.tsukuba.ac.jp",
               },
@@ -187,7 +187,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
                     ja: "融合知能デザイン研究室",
                     en: "FusionCompLab",
                   },
-                  locale
+                  locale,
                 ),
                 link: "https://fusioncomplab.org",
               },
@@ -198,12 +198,30 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           <span className={SpaceStyle.harf} />
           <Affiliation
             main={{
+              name: t(
+                { ja: "ライフイズテック株式会社", en: "Life is Tech, Inc." },
+                locale,
+              ),
+              link: "https://lifeistech.co.jp",
+            }}
+            sub={t({ ja: "メンター 2023/7~", en: "Mentor 2023/7~" }, locale)}
+          />
+          <br />
+          <span className={SpaceStyle.harf} />
+        </p>
+        <h3>Past Affiliations</h3>
+        <p>
+          <Affiliation
+            main={{
               name: t({ ja: "Ｓｋｙ株式会社", en: "Sky Co., LTD." }, locale),
               link: "https://www.skygroup.jp",
             }}
             sub={t(
-              { ja: "インターン 2025/6~", en: "Internship 2025/6~" },
-              locale
+              {
+                ja: "インターン 2025/6~2026/7",
+                en: "Internship 2025/6~2026/7",
+              },
+              locale,
             )}
           />
           <br />
@@ -211,21 +229,8 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           <Affiliation
             main={{
               name: t(
-                { ja: "ライフイズテック株式会社", en: "Life is Tech, Inc." },
-                locale
-              ),
-              link: "https://lifeistech.co.jp",
-            }}
-            sub={t({ ja: "メンター 2023/7~", en: "Mentor 2023/7~" }, locale)}
-          />
-        </p>
-        <h3>Past Affiliations</h3>
-        <p>
-          <Affiliation
-            main={{
-              name: t(
                 { ja: "株式会社ゼロフィールド", en: "ZEROFIELD, Inc." },
-                locale
+                locale,
               ),
               link: "https://zerofield.biz",
             }}
@@ -234,7 +239,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
                 ja: "インターン 2023/9~2025/12",
                 en: "Internship 2023/9~2025/12",
               },
-              locale
+              locale,
             )}
           />
           <br />
@@ -244,7 +249,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               {
                 name: t(
                   { ja: "筑波大学", en: "University of Tsukuba," },
-                  locale
+                  locale,
                 ),
                 link: "https://www.tsukuba.ac.jp",
               },
@@ -254,7 +259,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
                     ja: "情報学群",
                     en: "School Of Informatics,",
                   },
-                  locale
+                  locale,
                 ),
                 link: "https://inf.tsukuba.ac.jp",
               },
@@ -264,7 +269,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
                     ja: "情報メディア創成学類",
                     en: "College of Media Arts, Science and Technology",
                   },
-                  locale
+                  locale,
                 ),
                 link: "https://www.mast.tsukuba.ac.jp",
               },
@@ -285,7 +290,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
                     ja: "開智高等学校 [高等部]",
                     en: "Kaichi High School",
                   },
-                  locale
+                  locale,
                 ),
                 link: "https://koutoubu.kaichigakuen.ed.jp",
               },
@@ -408,7 +413,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               ja: "署名",
               en: "Signature",
             },
-            locale
+            locale,
           )}
         </a>
         <br />
@@ -426,7 +431,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               ja: "LinkedIn (認証済)",
               en: "LinkedIn (verified)",
             },
-            locale
+            locale,
           )}
         </a>
       </div>
@@ -466,7 +471,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               </p>
             ),
           },
-          locale
+          locale,
         )}
       </div>
       <br />
