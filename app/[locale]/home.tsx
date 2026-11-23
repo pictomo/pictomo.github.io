@@ -166,7 +166,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
               },
             ]}
             sub={t(
-              { ja: "修士1年生 2025/4~", en: "Master's 1st year 2025/4~" },
+              { ja: "博士前期課程 2025/4~", en: "Master's program 2025/4~" },
               locale,
             )}
           />
