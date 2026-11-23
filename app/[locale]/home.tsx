@@ -15,6 +15,7 @@ import {
 import { SiBookmeter, SiKeybase } from "react-icons/si";
 import { BsBookFill } from "react-icons/bs";
 import { AiFillSignature } from "react-icons/ai";
+import { HiOutlineExternalLink } from "react-icons/hi";
 
 import LinkStyle from "@/app/styles/link.module.scss";
 import QiitaLogoStyle from "@/app/styles/qiita-logo.module.scss";
@@ -86,6 +87,8 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
                 技術的な興味は、Web、言語処理系、cryptoなど。
                 <br />
                 趣味は、小説を読む、ピアノを弾く、古都を巡る、ホラー・オカルト、などなど。
+                <br />
+                pictomoはネットでの名義、本名や"ふじさん"というあだ名を名乗ることもあります。
               </p>
             ),
             en: (
@@ -97,7 +100,98 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
                 <br />
                 My hobbies are reading novels, playing the piano, exploring
                 ancient cities, horror and occult, etc...
+                <br />
+                pictomo is my online name, and I also go by my real name or the
+                nickname "fujisan."
               </p>
+            ),
+          },
+          locale,
+        )}
+        <h3>Unlocked Achievements</h3>
+        {t(
+          {
+            ja: (
+              <>
+                <p>日々様々な実績解除に勤しんでおります。</p>
+                <p>
+                  エベレストBCトレッキング(5550m)
+                  <br />
+                  AD Nomiya (歩く広告)&nbsp;
+                  <a
+                    className={LinkStyle.link}
+                    href="https://adnomiya.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <HiOutlineExternalLink />
+                  </a>
+                  <br />
+                  バンジージャンプ(竜神大吊橋, 100m)&nbsp;
+                  <a
+                    className={LinkStyle.link}
+                    href="https://ohtsuribashi.ryujinkyo.jp/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <HiOutlineExternalLink />
+                  </a>
+                  <br />
+                  山手線徒歩一周
+                  <br />
+                  寒中滝行
+                  <br />
+                  ガンジス川(インド)で沐浴
+                  <br />
+                  毒キノコ(ベニテングタケ)実食
+                  <br />
+                  24時間100kmマラソン
+                  <br />
+                  富士山登頂(3776m)
+                </p>
+              </>
+            ),
+            en: (
+              <>
+                <p>
+                  I'm also challenging myself to unlock various achievements.
+                </p>
+                <p>
+                  Everest BC Trekking (5,550m)
+                  <br />
+                  AD Nomiya (Walking Advertisement)&nbsp;
+                  <a
+                    className={LinkStyle.link}
+                    href="https://adnomiya.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <HiOutlineExternalLink />
+                  </a>
+                  <br />
+                  Bungee Jumping (Ryūjin Bridge, 100m)&nbsp;
+                  <a
+                    className={LinkStyle.link}
+                    href="https://ohtsuribashi.ryujinkyo.jp/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <HiOutlineExternalLink />
+                  </a>
+                  <br />
+                  Walking around the Yamanote Line
+                  <br />
+                  Winter waterfall training
+                  <br />
+                  Bathing in the Ganges River (India)
+                  <br />
+                  Eating poisonous mushrooms (Amanita muscaria)
+                  <br />
+                  24-hour 100km marathon
+                  <br />
+                  Climbing Mt. Fuji(3,776m)
+                </p>
+              </>
             ),
           },
           locale,
