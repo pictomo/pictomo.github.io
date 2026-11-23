@@ -68,7 +68,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
       <IconsView />
       <br />
       <Link
-        className={LinkStyle.link + " " + LinkStyle.unableSelect}
+        className={LinkStyle.link}
         href={locale === "ja" ? "/en" : "/ja"}
       >
         {t({ ja: "English", en: "日本語" }, locale)}
@@ -113,8 +113,8 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
         <p>
           {t(
             {
-              ja: "様々な実績解除に日々勤しんでおります。",
-              en: "I'm also challenging myself to unlock various achievements.",
+              ja: "実績解除に日々勤しんでおります。",
+              en: "I'm also challenging myself to unlock achievements in my daily life.",
             },
             locale,
           )}
@@ -132,7 +132,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           <span className={SpaceStyle.harf} />
           2026/8&nbsp;
           {t(
-            { ja: "昆虫食(米とサーカス高田馬場店)", en: "Eating insects(kome-to-circus)" },
+            { ja: "昆虫食(米とサーカス)", en: "Eating insects (kome-to-circus)" },
             locale,
           )}
           &nbsp;
@@ -234,12 +234,12 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
           <br />
           <span className={SpaceStyle.harf} />
           2024/4&nbsp;
-          {t({ ja: "時間100kmマラソン", en: "24-hour 100km marathon" }, locale)}
+          {t({ ja: "24時間100kmマラソン", en: "24-hour 100km marathon" }, locale)}
           <br />
           <span className={SpaceStyle.harf} />
           2017/8&nbsp;
           {t(
-            { ja: "富士山登頂(3776m)", en: "Climbing Mt. Fuji(3,776m)" },
+            { ja: "富士山登頂(3776m)", en: "Climbing Mt. Fuji (3,776m)" },
             locale,
           )}
         </p>
