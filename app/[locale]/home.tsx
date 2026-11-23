@@ -91,7 +91,7 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
                 <br />
                 趣味は、小説を読む、ピアノを弾く、古都を巡る、ホラー・オカルト、などなど。
                 <br />
-                pictomoはネットでの名義、本名や"ふじさん"というあだ名を名乗ることもあります。
+                本名や"ふじさん"というあだ名を名乗ることもあります。
               </p>
             ),
             en: (
@@ -103,102 +103,146 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
                 <br />
                 My hobbies are reading novels, playing the piano, exploring
                 ancient cities, horror and occult, etc...
-                <br />
-                pictomo is my online name, and I also go by my real name or the
-                nickname "fujisan."
+                <br />I sometimes go by my real name or the nickname "Fujisan."
               </p>
             ),
           },
           locale,
         )}
         <h3>Unlocked Achievements</h3>
-        {t(
-          {
-            ja: (
-              <>
-                <p>日々様々な実績解除に勤しんでおります。</p>
-                <p>
-                  エベレストBCトレッキング(5550m)
-                  <br />
-                  AD Nomiya (歩く広告)&nbsp;
-                  <a
-                    className={LinkStyle.link}
-                    href="https://adnomiya.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <HiOutlineExternalLink />
-                  </a>
-                  <br />
-                  バンジージャンプ(竜神大吊橋, 100m)&nbsp;
-                  <a
-                    className={LinkStyle.link}
-                    href="https://ohtsuribashi.ryujinkyo.jp/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <HiOutlineExternalLink />
-                  </a>
-                  <br />
-                  山手線徒歩一周
-                  <br />
-                  寒中滝行
-                  <br />
-                  ガンジス川(インド)で沐浴
-                  <br />
-                  毒キノコ(ベニテングタケ)実食
-                  <br />
-                  24時間100kmマラソン
-                  <br />
-                  富士山登頂(3776m)
-                </p>
-              </>
-            ),
-            en: (
-              <>
-                <p>
-                  I'm also challenging myself to unlock various achievements.
-                </p>
-                <p>
-                  Everest BC Trekking (5,550m)
-                  <br />
-                  AD Nomiya (Walking Advertisement)&nbsp;
-                  <a
-                    className={LinkStyle.link}
-                    href="https://adnomiya.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <HiOutlineExternalLink />
-                  </a>
-                  <br />
-                  Bungee Jumping (Ryūjin Bridge, 100m)&nbsp;
-                  <a
-                    className={LinkStyle.link}
-                    href="https://ohtsuribashi.ryujinkyo.jp/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <HiOutlineExternalLink />
-                  </a>
-                  <br />
-                  Walking around the Yamanote Line
-                  <br />
-                  Winter waterfall training
-                  <br />
-                  Bathing in the Ganges River (India)
-                  <br />
-                  Eating poisonous mushrooms (Amanita muscaria)
-                  <br />
-                  24-hour 100km marathon
-                  <br />
-                  Climbing Mt. Fuji(3,776m)
-                </p>
-              </>
-            ),
-          },
-          locale,
-        )}
+        <p>
+          {t(
+            {
+              ja: "様々な実績解除に日々勤しんでおります。",
+              en: "I'm also challenging myself to unlock various achievements.",
+            },
+            locale,
+          )}
+        </p>
+        <p>
+          2026/11&nbsp;
+          {t(
+            {
+              ja: "エベレストBCトレッキング(5550m)",
+              en: "Everest BC Trekking (5,550m)",
+            },
+            locale,
+          )}
+          <br />
+          <span className={SpaceStyle.harf} />
+          2026/8&nbsp;
+          {t(
+            { ja: "昆虫食(米とサーカス高田馬場店)", en: "Eating insects(kome-to-circus)" },
+            locale,
+          )}
+          &nbsp;
+          <a
+            className={LinkStyle.link}
+            href="https://asia-tokyo-world.com/store/kome-to-circus/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <HiOutlineExternalLink />
+          </a>
+          <br />
+          <span className={SpaceStyle.harf} />
+          2026/7&nbsp;
+          {t(
+            {
+              ja: "AD Nomiya (歩く広告)",
+              en: "AD Nomiya (Walking Advertisement)",
+            },
+            locale,
+          )}
+          &nbsp;
+          <a
+            className={LinkStyle.link}
+            href="https://adnomiya.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <HiOutlineExternalLink />
+          </a>
+          <br />
+          <span className={SpaceStyle.harf} />
+          2026/5&nbsp;
+          {t(
+            {
+              ja: "バンジージャンプ(竜神大吊橋, 100m)",
+              en: "Bungee Jumping (Ryūjin Bridge, 100m)",
+            },
+            locale,
+          )}
+          &nbsp;
+          <a
+            className={LinkStyle.link}
+            href="https://ohtsuribashi.ryujinkyo.jp/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <HiOutlineExternalLink />
+          </a>
+          <br />
+          <span className={SpaceStyle.harf} />
+          2026/3&nbsp;
+          {t(
+            {
+              ja: "山手線徒歩一周",
+              en: "Walking around the Yamanote Line",
+            },
+            locale,
+          )}
+          <br />
+          <span className={SpaceStyle.harf} />
+          2026/1&nbsp;
+          {t(
+            {
+              ja: "寒中滝行(月待の滝)",
+              en: "Winter waterfall training (Tsukimachi Falls)",
+            },
+            locale,
+          )}
+          &nbsp;
+          <a
+            className={LinkStyle.link}
+            href="https://www.daigo-kanko.jp/spot-0004.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <HiOutlineExternalLink />
+          </a>
+          <br />
+          <span className={SpaceStyle.harf} />
+          2025/10&nbsp;
+          {t(
+            {
+              ja: "毒キノコ(ベニテングタケ)実食",
+              en: "Eating poisonous mushrooms (Amanita muscaria)",
+            },
+            locale,
+          )}
+          <br />
+          <span className={SpaceStyle.harf} />
+          2025/3&nbsp;
+          {t(
+            {
+              ja: "ガンジス川(インド)で沐浴",
+              en: "Bathing in the Ganges River (India)",
+            },
+            locale,
+          )}
+          <br />
+          <span className={SpaceStyle.harf} />
+          2024/4&nbsp;
+          {t({ ja: "時間100kmマラソン", en: "24-hour 100km marathon" }, locale)}
+          <br />
+          <span className={SpaceStyle.harf} />
+          2017/8&nbsp;
+          {t(
+            { ja: "富士山登頂(3776m)", en: "Climbing Mt. Fuji(3,776m)" },
+            locale,
+          )}
+        </p>
       </div>
       <br />
       <div>
