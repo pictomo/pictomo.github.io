@@ -67,7 +67,10 @@ const Home = ({ locale }: { locale: I18nLocale }) => {
       <h1>Hello, This is pictomo !</h1>
       <IconsView />
       <br />
-      <Link className={LinkStyle.link} href={locale === "ja" ? "/en" : "/ja"}>
+      <Link
+        className={LinkStyle.link + " " + LinkStyle.unableSelect}
+        href={locale === "ja" ? "/en" : "/ja"}
+      >
         {t({ ja: "English", en: "日本語" }, locale)}
       </Link>
       <br />

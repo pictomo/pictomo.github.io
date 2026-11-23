@@ -14,7 +14,7 @@ const ThemeChanger = ({ locale }: { locale: I18nLocale }) => {
   return (
     <div>
       <span
-        className={linkStyles.link}
+        className={linkStyles.link + " " + linkStyles.unableSelect}
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       >
         <MountContainer
@@ -23,7 +23,7 @@ const ThemeChanger = ({ locale }: { locale: I18nLocale }) => {
               ja: "カラーモード",
               en: "Color Mode",
             },
-            locale
+            locale,
           )}
         >
           {t(
@@ -61,7 +61,7 @@ const ThemeChanger = ({ locale }: { locale: I18nLocale }) => {
                   </>
                 ),
             },
-            locale
+            locale,
           )}
           <MdLightMode
             className={`${IconStyle.adjust} ${IconStyle.leftMargin} ${IconStyle.invisible}`}

@@ -27,7 +27,10 @@ const P5Switch = ({ locale }: { locale: I18nLocale }) => {
 
   return (
     <div>
-      <span className={linkStyles.link} onClick={toggleMode}>
+      <span
+        className={linkStyles.link + " " + linkStyles.unableSelect}
+        onClick={toggleMode}
+      >
         {t({ ja: "背景モード", en: "Background Mode" }, locale)}
       </span>
       <span className={tooltipStyles.container}>
@@ -38,7 +41,7 @@ const P5Switch = ({ locale }: { locale: I18nLocale }) => {
               ja: "パフォーマンスが悪い場合はoffにしてください",
               en: "Please turn it off if it performs poorly",
             },
-            locale
+            locale,
           )}
         </span>
       </span>
